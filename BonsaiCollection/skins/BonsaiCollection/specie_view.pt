@@ -1,0 +1,224 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+  <head><title></title></head>
+
+  <metal:javascript_head fill-slot="javascript_head_slot">
+    <tal:block define="macro here/archetypes_custom_js/macros/javascript_head | nothing"
+               condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+    <tal:comment replace="nothing">
+      Many of the following defines duplicated from the tal:defines in the
+      main slot. With base_edit, edit_macros could be reused as it was defined
+      for the entire document. base_view uses main_template and thus must
+      create additional defines for each slot it fills.
+    </tal:comment>
+    <tal:js define="fields python:here.Schema().viewableFields(here);
+                    js python:here.getUniqueWidgetAttr(fields, 'helper_js')"
+            condition="js"
+            repeat="item js">
+      <script type="text/javascript"
+              charset="iso-8859-1"
+              tal:condition="python:exists('portal/%s' % item)"
+              tal:attributes="src string:$portal_url/$item">
+      </script>
+    </tal:js>
+    <tal:block define="portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
+                       view_template python:'%s_view' % portal_type;
+                       view_macros python:path('here/%s/macros|nothing' % view_template);
+                       macro view_macros/js | nothing"
+               condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+  </metal:javascript_head>
+
+  <metal:css fill-slot="css_slot">
+    <tal:comment replace="nothing">
+      Many of the following defines duplicated from the tal:defines in the
+      main slot. With base_edit, edit_macros could be reused as it was defined
+      for the entire document. base_view uses main_template and thus must
+      create additional defines for each slot it fills.
+    </tal:comment>
+    <tal:css define="fields python:here.Schema().viewableFields(here);
+                     css python:here.getUniqueWidgetAttr(fields, 'helper_css')"
+             condition="css"
+             repeat="item css">
+      <style type="text/css"
+             media="all"
+             tal:condition="python:exists('portal/%s' % item)"
+             tal:content="string:@import url($portal_url/$item);">
+      </style>
+    </tal:css>
+    <tal:block define="portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
+                       view_template python:'%s_view' % portal_type;
+                       view_macros python:path('here/%s/macros|nothing' % view_template);
+                       macro view_macros/css | nothing"
+               condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+  </metal:css>
+
+  <body>
+    <metal:fill fill-slot="main">
+      <metal:main_macro define-macro="main"
+            tal:define="portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
+            base_macros here/base/macros;
+            view_template python:'%s_view' % portal_type;
+            view_macros python:path('here/%s/macros|nothing' % view_template);
+            header_macro view_macros/header | header_macro | base_macros/header;                        
+            footer_macro view_macros/footer | footer_macro | base_macros/footer;
+            errors python:request.get('errors', {});
+            url here/absolute_url;
+            schematas here/Schemata;
+            fieldsets python:[key for key in schematas.keys() if (key != 'metadata') and (schematas[key].editableFields(here, visible_only=True))];
+            default_fieldset python:(not schematas or schematas.has_key('default')) and 'default' or schematas.keys()[0];
+            fieldset request/fieldset|options/fieldset|default_fieldset; "
+            ">
+
+        <metal:use_header use-macro="header_macro" />        
+        <div style="clear: right;">
+          <h1 tal:content="string: ${here/title_or_id} - $fieldset" >
+            Title or id
+          </h1> 
+          <div metal:use-macro="here/document_byline/macros/byline">
+           Get the byline - contains details about author and modification date.
+          </div>
+          <br/><br/>
+          <table style="float: right; clear: right;" class="vertical listing"> 
+            <tbody>
+              <tr>
+                <td>
+                  <ul tal:condition="here/Schemata"
+                      tal:define="schemata here/Schemata">
+                    <tal:block repeat="set schemata/keys">
+                      <li tal:condition="python:set != 'metadata'">
+                        <tal:current condition="python:set == fieldset and fieldsets != ['default']">
+                          <span tal:content="set" i18n:translate="" />
+                        </tal:current>
+                        <tal:others condition="python:set != fieldset">
+                          <a href="#" tal:attributes="href string:${here/absolute_url}/${template/getId}?fieldset=${set}">
+                            <span tal:content="set" i18n:translate="" /></a>
+                        </tal:others>
+                      </li>
+                    </tal:block>
+                  </ul>                                   
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div tal:condition="python: fieldset == 'Botany'">
+            <table>
+              <tr>
+                <td width="100px"><b><span i18n:translate="BonsaiCollection_label_family">Family</span>:</b></td>
+                <td><span tal:content="here/getFamily" /><td>
+              </tr>
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_genus">Genus</span>:</b></td>
+                <td><span tal:content="here/getGenus" /></td>
+              </tr>
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_variety">Variety</span>:</b></td>
+                <td><span tal:content="here/getVariety" /></td>
+              </tr>
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_cultivar">Cultivar</span>:</b></td>
+                <td><span tal:content="here/getCultivar" /></td>
+              </tr>
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_commonName">Nom commun</span>:</b></td>
+                <td><span tal:content="here/getCommonName" /></td>
+              </tr>
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_location">Origine</span>:</b></td>
+                <td><span tal:content="here/getLocation" /></td>
+              </tr>
+            </table>
+          </div> 
+          <div tal:condition="python: fieldset == 'Presentation'">
+            <span metal:use-macro="python: here.widget('description', mode='view')">Description</span><br/> <br/>
+            <div align="center">
+              <span tal:replace="structure here/generalPicture/generalPicture_normal"/><br/><br/>
+              <a href="image.jpg" tal:attributes="href string:$url/generalPicture/image_view_fullscreen">Photo d'ensemble</a>
+            </div><br/>
+            <div align="center">              
+                <span tal:replace="structure here/leafPicture/leafPicture_normal"/><br/>
+                <a href="image.jpg" tal:attributes="href string:$url/leafPicture/image_view_fullscreen">Photo d'une feuille</a>
+            </div><br />
+            <div align="center">
+              <span tal:replace="structure here/flowerPicture/flowerPicture_normal"/><br/>
+              <a href="image.jpg" tal:attributes="href string:$url/flowerPicture/image_view_fullscreen">Photo d'une fleur</a>
+            </div><br />
+            <div align="center">
+              <span tal:replace="structure here/fruitPicture/fruitPicture_normal"/><br/>
+              <a href="image.jpg" tal:attributes="href string:$url/fruitPicture/image_view_fullscreen">Photo d'une fruit</a>
+            </div><br />
+          </div> 
+          <div tal:condition="python: fieldset == 'Getting'">
+            <b>Semis:</b><p><span metal:use-macro="python: here.widget('seed', mode='view')">semis</span></p>
+            <b>Bouture:</b><p><span metal:use-macro="python: here.widget('cutting', mode='view')">bouture</span></p>
+            <b>Marcotte:</b><p><span metal:use-macro="python: here.widget('layer', mode='view')">marcotte</span></p>
+            <b>Greffe:</b><p><span metal:use-macro="python: here.widget('budding', mode='view')">greffe</span></p>
+          </div> 
+          <div tal:condition="python: fieldset == 'Culture'">           
+            <p><span metal:use-macro="python: here.widget('care', mode='view')">Culture remark</span></p><br/><br/>
+            <table>
+              <tr>
+                <td width="100px"><b><span i18n:translate="BonsaiCollection_label_level">Difficulty</span>:</b></td>
+                <td><span metal:use-macro="python: here.widget('level', mode='view')">Difficulté</span><td>
+              </tr>
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_growth">Croissance</span>:</b></td>
+                <td><span metal:use-macro="python: here.widget('growth', mode='view')">Croissance</span><td>
+              </tr>
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_light">Exposition</span>:</b></td>
+                <td><span metal:use-macro="python: here.widget('light', mode='view')">Exposition</span><td>
+              </tr>  
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_hygrometry">Hygrometrie</span>:</b></td>
+                <td><span metal:use-macro="python: here.widget('hygrometry', mode='view')">Hygrometrie</span><td>
+              </tr>  
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_temperature">Temperature</span>:</b></td>
+                <td><span metal:use-macro="python: here.widget('temperature', mode='view')">Temperature</span><td>
+              </tr>  
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_watering">Arrosage</span>:</b></td>
+                <td><span metal:use-macro="python: here.widget('watering', mode='view')">Arrosage</span><td>
+              </tr>  
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_transplanting">Rempotage</span>:</b></td>
+                <td><span metal:use-macro="python: here.widget('transplanting', mode='view')">Rempotage</span><td>
+              </tr>  
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_soilMixture">Substrat</span>:</b></td>
+                <td><span metal:use-macro="python: here.widget('soilMixture', mode='view')">Substrat</span><td>
+              </tr>  
+              <tr>
+                <td><b><span i18n:translate="BonsaiCollection_label_fertilisation">Fertilisation:</span></b></td>
+                <td><span metal:use-macro="python: here.widget('fertilisation', mode='view')">Fertilisation</span><td>
+              </tr>
+            </table>      
+          </div> 
+          <div tal:condition="python: fieldset == 'Aesthetic'">
+            <b><span i18n:translate="BonsaiCollection_label_wiring">La ligature:</span></b><p><span metal:use-macro="python: here.widget('wiring', mode='view')">ligature</span></p>
+            <b><span i18n:translate="BonsaiCollection_label_treesstyle">Les Styles</span>:</b><p><span metal:use-macro="python: here.widget('Common style', mode='view')">styles</span></p>
+            <b><span i18n:translate="BonsaiCollection_label_potStyle">Les poteries</span>:</b><p><span metal:use-macro="python: here.widget('potStyle', mode='view')">poterie</span></p>
+          </div>  
+          <div tal:condition="python: fieldset == 'Phytosanitaire'">
+            <br/><br/>
+            <b><span i18n:translate="BonsaiCollection_label_blights">Les maladies</span>:</b><p><span metal:use-macro="python: here.widget('Common illness', mode='view')">maladies</span></p>
+          </div>           
+        </div>       
+        <metal:use_footer use-macro="footer_macro" />
+      </metal:main_macro>
+    </metal:fill>
+  </body>
+</html>
