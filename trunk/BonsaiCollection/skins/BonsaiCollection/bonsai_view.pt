@@ -1,0 +1,242 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+  <head><title></title></head>
+
+  <metal:javascript_head fill-slot="javascript_head_slot">
+    <tal:block define="macro here/archetypes_custom_js/macros/javascript_head | nothing"
+               condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+    <tal:comment replace="nothing">
+      Many of the following defines duplicated from the tal:defines in the
+      main slot. With base_edit, edit_macros could be reused as it was defined
+      for the entire document. base_view uses main_template and thus must
+      create additional defines for each slot it fills.
+    </tal:comment>
+    <tal:js define="fields python:here.Schema().viewableFields(here);
+                    js python:here.getUniqueWidgetAttr(fields, 'helper_js')"
+            condition="js"
+            repeat="item js">
+      <script type="text/javascript"
+              charset="iso-8859-1"
+              tal:condition="python:exists('portal/%s' % item)"
+              tal:attributes="src string:$portal_url/$item">
+      </script>
+    </tal:js>
+    <tal:block define="portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
+                       view_template python:'%s_view' % portal_type;
+                       view_macros python:path('here/%s/macros|nothing' % view_template);
+                       macro view_macros/js | nothing"
+               condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+  </metal:javascript_head>
+
+  <metal:css fill-slot="css_slot">
+    <tal:comment replace="nothing">
+      Many of the following defines duplicated from the tal:defines in the
+      main slot. With base_edit, edit_macros could be reused as it was defined
+      for the entire document. base_view uses main_template and thus must
+      create additional defines for each slot it fills.
+    </tal:comment>
+    <tal:css define="fields python:here.Schema().viewableFields(here);
+                     css python:here.getUniqueWidgetAttr(fields, 'helper_css')"
+             condition="css"
+             repeat="item css">
+      <style type="text/css"
+             media="all"
+             tal:condition="python:exists('portal/%s' % item)"
+             tal:content="string:@import url($portal_url/$item);">
+      </style>
+      <style type="text/css" media="screen" tal:content="string:@import url($portal_url/bonsaicollection.css);"/>
+    </tal:css>
+    <tal:block define="portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
+                       view_template python:'%s_view' % portal_type;
+                       view_macros python:path('here/%s/macros|nothing' % view_template);
+                       macro view_macros/css | nothing"
+               condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+  </metal:css>
+
+  <body>
+    <metal:fill fill-slot="main">
+      <metal:main_macro define-macro="main"
+            tal:define="portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
+            base_macros here/base/macros;
+            view_template python:'%s_view' % portal_type;
+            view_macros python:path('here/%s/macros|nothing' % view_template);
+            header_macro view_macros/header | header_macro | base_macros/header;
+            body_macro view_macros/body | body_macro | base_macros/body;
+            folderlisting_macro view_macros/folderlisting | folderlisting | base_macros/folderlisting;
+            footer_macro view_macros/footer | footer_macro | base_macros/footer;            
+            url here/absolute_url;
+            errors python:request.get('errors', {})">
+
+        <metal:use_header use-macro="header_macro" />
+        <div i18n:domain="BonsaiCollection">
+          <tal:define define="refs python:here.getReferenceImpl(relationship='looks like')">
+           <tal:exist condition="refs">                                     
+              <div class="bonsai-photo bonsai-picture-left" tal:define="ref python:refs[0];
+                                           obj ref/getTargetObject">
+                <a href="image.jpg" tal:attributes="href obj/absolute_url">
+                  <span tal:replace="structure python:obj.tag(scale='preview')" tal:attributes="style string:width:200px" />
+                </a>          
+              </div>
+            </tal:exist>  
+            <div class="bonsai-photo-empty bonsai-picture-left" tal:condition="not:refs">
+              <div class="bonsai-photo-empty-title"> no picture</div>
+            </div>
+          </tal:define>
+          <div class="bonsai-photo bonsai-picture-right" tal:define="obj here/project|nothing">
+            <tal:exist condition="obj">
+              <a href="image.jpg" tal:attributes="href string:$url/project/image_view_fullscreen">
+                <span tal:replace="structure here/project/project_normal"/>
+              </a>
+            </tal:exist>
+            <tal:exist condition="not:obj">
+              <div class="bonsai-photo-empty">
+                <div class="bonsai-photo-empty-title"> no picture</div>
+                </div>
+            </tal:exist>
+          </div>
+          <div style="float: left;"><br/>
+            <b><span i18n:translate="BonsaiCollection_label_origin">origin</span>: </b><span metal:use-macro="python: here.widget('origin', mode='view')">origin</span><br/>
+            <b><span i18n:translate="BonsaiCollection_label_cost">cost</span>: </b><span metal:use-macro="python: here.widget('cost', mode='view')">cost</span><br/>
+            <b><span i18n:translate="BonsaiCollection_label_species">species</span>: </b><span metal:use-macro="python: here.widget('species', mode='view')">species</span><br/>            
+            <b><span i18n:translate="BonsaiCollection_label_container">container</span>: </b><span metal:use-macro="python: here.widget('container', mode='view')">container</span><br/>
+            <b><span i18n:translate="BonsaiCollection_label_treestyles">treestyles</span>: </b><span metal:use-macro="python: here.widget('treestyles', mode='view')">treestyles</span><br/>
+            <b><span i18n:translate="BonsaiCollection_label_acquiredDate">Date d'acquisition</span>: </b><span metal:use-macro="python: here.widget('acquiredDate', mode='view')">Date</span><br/>            
+          </div>
+          <div class="visualClear"></div><br/>
+          <b><span i18n:translate="BonsaiCollection_label_remark">remark</span>: </b><span metal:use-macro="python: here.widget('remark', mode='view')">remark</span><br/>          
+          <br/><br/><br/>
+          
+          <div 	style="float: left; margin: 10px"
+          		tal:define="results python: here.portal_catalog.searchResults(portal_type='BonsaiEventWork',
+          																	  path='/'.join(here.getPhysicalPath()),
+          																	  sort_on='Date',
+          																	  sort_order='reverse')[:5]">
+            <dl id="portlet-works" class="portlet">
+              <dt class="portletHeader">
+                <span class="portletTopLeft"/>
+                <a href="works_view" tal:attributes="href string:$url/works_view" i18n:translate="BonsaiCollection_label_events">Dernieres travaux</a>
+                <span class="portletTopRight"/>
+              </dt>
+              <tal tal:condition="results">
+                <tal:block tal:repeat="item results" > 
+                  <tal:block tal:define="obj item/getObject">
+                  	<dd tal:define="oddrow repeat/item/odd;
+                  	                title  obj/pretty_title_or_id;
+                                    url    obj/absolute_url;
+                                    icon   python: obj.getIcon(1)"
+                        tal:attributes="class python:test(oddrow, 'portletItem even', 'portletItem odd')">
+                      <a href="#" tal:attributes="href url">
+                        <img src="" alt="" tal:attributes="src string:${utool}/${icon};alt here/title_or_id" />
+                        <span tal:replace="title" />
+                      </a>
+                    </dd>
+                  </tal:block>
+                </tal:block>
+              </tal>
+              <tal tal:condition="not:results">
+                <dd class="portletItem odd">
+                  <a href="works_add" tal:attributes="href string:$url/createObject?type_name=BonsaiEventWork" 
+                                      i18n:translate="BonsaiCollection_label_addnewwork">
+                     Ajouter une nouvelle tache
+                  </a>
+                </dd>
+              </tal>
+          	<dl>
+          </div>
+          <div 	style="float: left; margin: 10px"
+          		tal:define="results python: here.portal_catalog.searchResults(portal_type='BonsaiEventIllness',
+          																	  path='/'.join(here.getPhysicalPath()),
+          																	  sort_on='Date',
+          																	  sort_order='reverse')[:5]">
+            <dl id="portlet-works" class="portlet">
+              <dt class="portletHeader">
+                <span class="portletTopLeft"/>
+                <a href="works_view" tal:attributes="href string:$url/illnesses_view" i18n:translate="BonsaiCollection_label_lastillnesses">Ses dernieres maladies</a>
+                <span class="portletTopRight"/>
+              </dt>
+              <tal tal:condition="results">
+                <tal:block tal:repeat="item results" > 
+                  <tal:block tal:define="obj item/getObject">
+                  	<dd tal:define="oddrow repeat/item/odd;
+                  	                title  obj/pretty_title_or_id;
+                                    url    obj/absolute_url;
+                                    icon   python: obj.getIcon(1)"
+                        tal:attributes="class python:test(oddrow, 'portletItem even', 'portletItem odd')">
+                       <a href="#" tal:attributes="href url">
+                         <img src="" alt="" tal:attributes="src string:${utool}/${icon};alt here/title_or_id" />
+		              
+		                 <span tal:replace="title" />
+						</a>
+                    </dd>
+                  </tal:block>
+                </tal:block>
+              </tal>
+              <tal tal:condition="not:results">
+                <dd class="portletItem odd">
+                  <a href="illness_add" tal:attributes="href string:$url/createObject?type_name=BonsaiEventIllness" 
+                                      i18n:translate="BonsaiCollection_label_addnewillness">
+                     Ajouter une nouvelle Maladie
+                  </a>
+
+                </dd>
+              </tal>
+          	<dl>
+          </div>
+          <div 	style="float: left; margin: 10px"
+          		tal:define="results python: here.portal_catalog.searchResults(portal_type='ATPhotoAlbum',
+          																	  path='/'.join(here.getPhysicalPath()),
+          																	  sort_on='Date',
+          																	  sort_order='reverse')[:5]">
+            <dl id="portlet-works" class="portlet">
+              <dt class="portletHeader">
+                <span class="portletTopLeft"/>
+                <a href="works_view" tal:attributes="href string:$url/works_view" i18n:translate="BonsaiCollection_label_myalbums">Mes albums</a>
+                <span class="portletTopRight"/>
+              </dt>
+              <tal tal:condition="results">
+                <tal:block tal:repeat="item results" > 
+                  <tal:block tal:define="obj item/getObject">
+                  	<dd tal:define="oddrow repeat/item/odd;
+                  	                title  obj/pretty_title_or_id;
+                                    url    obj/absolute_url;
+                                    icon   python: obj.getIcon(1)"
+                        tal:attributes="class python:test(oddrow, 'portletItem even', 'portletItem odd')">
+                      <a href="#" tal:attributes="href url">
+                        <img src="" alt="" tal:attributes="src string:${utool}/${icon};alt here/title_or_id" />
+                        <span tal:replace="title" />
+                      </a>
+                    </dd>
+                  </tal:block>
+                </tal:block>
+              </tal>
+              <tal tal:condition="not:results">
+                <dd class="portletItem odd">
+                  <a href="works_add" tal:attributes="href string:$url/createObject?type_name=ATPhotoAlbum" 
+                                      i18n:translate="BonsaiCollection_label_addnewalbums">
+                     Ajouter une nouvelle albums
+                  </a>
+                </dd>
+              </tal>
+          	<dl>
+          </div>       
+          <div class="visualClear"></div>
+        </div>
+        <metal:use_footer use-macro="footer_macro" />
+
+      </metal:main_macro>
+    </metal:fill>
+  </body>
+</html>

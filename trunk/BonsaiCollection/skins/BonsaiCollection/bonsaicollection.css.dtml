@@ -1,0 +1,54 @@
+/* <dtml-with base_properties> (do not remove this :) 
+   <dtml-call "REQUEST.set('portal_url', portal_url())"> (not this either :) */
+
+
+
+.sampleBonsai {
+    background-image: url('&dtml-portal_url;/polaroid-multi.png');
+    font-size: &dtml-fontSmallSize;;
+    color: &dtml-discreetColor;;
+}
+
+.bonsai-picture {
+  float:left; 
+  width:45%; 
+  text-align: center;
+}
+
+.bonsai-picture-left {
+  float:left;
+  margin: 4px;
+  text-align: center;
+}
+
+.bonsai-picture-right {
+  float:right; 
+  margin: 4px;
+  text-align: center;
+}
+
+.bonsai-info {
+  float:right; 
+  width:45%;
+}
+
+.bonsai-main {
+  clear: left;
+}
+
+
+.bonsai-photo, .bonsai-photo-empty {
+  border: 1px solid black; 
+}
+
+.bonsai-photo-empty {
+  width:200px; 
+  height:200px;
+}
+
+.bonsai-photo-empty-title {
+  text-align: center;
+  position: relative;
+  top: 50%;
+}
+/* </dtml-with> */
