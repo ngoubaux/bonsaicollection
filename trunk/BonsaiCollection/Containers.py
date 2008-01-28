@@ -62,7 +62,7 @@ class Containers(BaseFolder):
     allowed_content_types = ['Container']
     filter_content_types = 1
     global_allow = 0
-    content_icon = 'folder_stone.gif'
+    content_icon = 'folder_stone.png'
     immediate_view = 'base_view'
     default_view = 'base_view'
     suppl_views = ()

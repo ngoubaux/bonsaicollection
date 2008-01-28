@@ -62,7 +62,7 @@ class BonsaiCollection(BaseFolder):
     allowed_content_types = ['Bonsai', 'Containers']
     filter_content_types = 1
     global_allow = 1
-    #content_icon = 'BonsaiCollection.gif'
+    content_icon = 'folder_bonsai.png'
     immediate_view = 'base_view'
     default_view = 'base_view'
     suppl_views = ()
