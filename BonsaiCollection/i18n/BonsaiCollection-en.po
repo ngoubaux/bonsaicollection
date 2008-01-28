@@ -16,6 +16,21 @@ msgstr ""
 "Preferred-Encodings: latin1 utf-8\n"
 "Domain: BonsaiCollection\n"
 
+#. Default: "(Podocarpaceae, Pinaceae, Rosaceae, Aquifoliaceae, ..)"
+#: Specie.py
+msgid "BonsaiCollection_help_family"
+msgstr ""
+
+#. Default: "(Taxus,Malus, Ilex, ...)"
+#: Specie.py
+msgid "BonsaiCollection_help_genus"
+msgstr ""
+
+#. Default: "(baccata, sylvestris, aquifolium)"
+#: Specie.py
+msgid "BonsaiCollection_help_variety"
+msgstr ""
+
 #. Default: "Common illness"
 #: Specie.py
 msgid "BonsaiCollection_label_Common illness"
@@ -31,20 +46,25 @@ msgstr ""
 msgid "BonsaiCollection_label_CurrentView"
 msgstr "Current view"
 
-#. Default: "Leaf Picture"
+#. Default: "Leafpicture"
 #: Specie.py
 #, fuzzy
 msgid "BonsaiCollection_label_LeafPicture"
 msgstr "Leaf picture"
 
-#. Default: "Acquired Date"
+#. Default: "Treetype"
+#: Specie.py
+msgid "BonsaiCollection_label_TreeType"
+msgstr ""
+
+#. Default: "Acquireddate"
 #: Bonsai.py
 #: Container.py
 #, fuzzy
 msgid "BonsaiCollection_label_acquiredDate"
 msgstr "Acquired Date"
 
-#. Default: "Photo"
+#. Default: "Atphotos"
 #: Bonsai.py
 #, fuzzy
 msgid "BonsaiCollection_label_atphotos"
@@ -66,11 +86,10 @@ msgstr ""
 msgid "BonsaiCollection_label_care"
 msgstr ""
 
-#. Default: "Chinese name"
+#. Default: "Chinesename"
 #: TreeStyle.py
-#, fuzzy
 msgid "BonsaiCollection_label_chineseName"
-msgstr "Chinese name"
+msgstr ""
 
 #. Default: "Color"
 #: Container.py
@@ -80,13 +99,12 @@ msgstr ""
 #. Default: "Commonname"
 #: Specie.py
 msgid "BonsaiCollection_label_commonName"
-msgstr ""
-
-#. Default: "Common name"
-#: Specie.py
-#, fuzzy
-msgid "BonsaiCollection_label_common_name"
 msgstr "Common name"
+
+#. Default: "Common_name"
+#: Specie.py
+msgid "BonsaiCollection_label_common_name"
+msgstr ""
 
 #. Default: "Consequence"
 #: Blight.py
@@ -96,12 +114,12 @@ msgstr ""
 #. Default: "Container"
 #: Bonsai.py
 msgid "BonsaiCollection_label_container"
-msgstr ""
+msgstr "Pot"
 
 #. Default: "Containers"
 #: Bonsai.py
 msgid "BonsaiCollection_label_containers"
-msgstr ""
+msgstr "Pots"
 
 #. Default: "Cost"
 #: Bonsai.py
@@ -194,7 +212,7 @@ msgstr ""
 #. Default: "Leafpicture"
 #: Specie.py
 msgid "BonsaiCollection_label_leafPicture"
-msgstr ""
+msgstr "Leaf picture"
 
 #. Default: "Level"
 #: Specie.py
@@ -231,11 +249,18 @@ msgstr ""
 #. Default: "Potstyle"
 #: Specie.py
 msgid "BonsaiCollection_label_potStyle"
-msgstr ""
+msgstr "Pot style"
 
 #. Default: "Project"
 #: Bonsai.py
 msgid "BonsaiCollection_label_project"
+msgstr ""
+
+#. Default: "Remark"
+#: Bonsai.py
+#: Container.py
+#: BonsaiEvent.py
+msgid "BonsaiCollection_label_remark"
 msgstr ""
 
 #. Default: "Seed"
@@ -261,7 +286,7 @@ msgstr ""
 #. Default: "Soilmixture"
 #: Specie.py
 msgid "BonsaiCollection_label_soilMixture"
-msgstr ""
+msgstr "Soil mixture"
 
 #. Default: "Species"
 #: Bonsai.py
@@ -288,7 +313,7 @@ msgstr ""
 msgid "BonsaiCollection_label_transplanting"
 msgstr ""
 
-#. Default: "Tree styles"
+#. Default: "Treestyles"
 #: Bonsai.py
 #, fuzzy
 msgid "BonsaiCollection_label_treestyles"
@@ -322,5 +347,10 @@ msgstr ""
 #. Default: "Wiring"
 #: Specie.py
 msgid "BonsaiCollection_label_wiring"
+msgstr ""
+
+#. Default: "Worktype"
+#: BonsaiEventWork.py
+msgid "BonsaiCollection_label_workType"
 msgstr ""
 
