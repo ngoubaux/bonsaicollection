@@ -29,6 +29,7 @@ __docformat__ = 'plaintext'
 
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.atapi import *
+from Products.ATVocabularyManager.namedvocabulary import NamedVocabulary
 from Products.BonsaiCollection.config import *
 
 # additional imports from tagged value 'import'
@@ -45,16 +46,8 @@ schema = Schema((
             label='Origin',
             label_msgid='BonsaiCollection_label_origin',
             i18n_domain='BonsaiCollection',
-        )
-    ),
-
-    IntegerField(
-        name='cost',
-        widget=IntegerField._properties['widget'](
-            label='Cost',
-            label_msgid='BonsaiCollection_label_cost',
-            i18n_domain='BonsaiCollection',
-        )
+        ),
+        vocabulary=NamedVocabulary("""BonsaiOrigin""")
     ),
 
     DateTimeField(

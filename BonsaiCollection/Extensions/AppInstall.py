@@ -25,11 +25,23 @@ def install(self):
        )   
        
     vocabs['BonsaiWorkType'] = (
+          ('pincing', u'Pincement'),
+          ('defoliation', u'Defoliation'),
+          ('wiring', u'Ligature'),
+          ('greffe', u'Greffe'),
+          ('layer', u'Marcottage'),
           ('repotting', u'Rempotage'),
-          ('cutting', u'Taille'),
+          ('structcutting', u'Taille de structure'),
+          ('carecutting', u'Taille d entretien'),
           ('feeding', u'Fertilisation'),
+          ('jin', u'Jin - Shari'),
        )    
-       
+    vocabs['BonsaiOrigin'] = (
+          ('seed', u'Semi'),
+          ('taking', u'Prelevement'),
+          ('prof', u'Professionel'),
+          ('div', u'division'),
+       )
     vocabs['TreeType'] = (
           ('conifer', u'Conifer'),
           ('feuillu', u'Feuillu'),
