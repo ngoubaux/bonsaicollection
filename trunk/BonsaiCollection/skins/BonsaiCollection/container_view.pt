@@ -88,7 +88,7 @@
           <b><span i18n:translate="BonsaiCollection_label_size">Dimension</span>:</b> <span metal:use-macro="python: here.widget('size', mode='view')"/><br/>
           <b><span i18n:translate="BonsaiCollection_label_cost">Cout</span>:</b> <span metal:use-macro="python: here.widget('cost', mode='view')"/><br/>
           <b><span i18n:translate="BonsaiCollection_label_acquiredDate">Date d'acquisition</span>:</b> <span metal:use-macro="python: here.widget('acquiredDate', mode='view')"/><br/>
-          <b><span i18n:translate="BonsaiCollection_label_remark">Remarque</span>:</b> <span metal:use-macro="python: here.widget('remark', mode='view')"/><br/>
+          <b><span i18n:translate="BonsaiCollection_label_remark">Remark</span>:</b> <span metal:use-macro="python: here.widget('remark', mode='view')"/><br/>
         </div>     
         <metal:use_footer use-macro="footer_macro" />
       </metal:main_macro>

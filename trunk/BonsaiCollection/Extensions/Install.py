@@ -74,7 +74,8 @@ def install(self, reinstall=False):
     # Create vocabularies in vocabulary lib
     from Products.ATVocabularyManager.config import TOOL_NAME as ATVOCABULARYTOOL
     atvm = getToolByName(self, ATVOCABULARYTOOL)
-    vocabmap = {'BlightGroup': ('SimpleVocabulary', 'SimpleVocabularyTerm'),
+    vocabmap = {'BonsaiOrigin': ('SimpleVocabulary', 'SimpleVocabularyTerm'),
+         'BlightGroup': ('SimpleVocabulary', 'SimpleVocabularyTerm'),
          'BonsaiWorkType': ('SimpleVocabulary', 'SimpleVocabularyTerm'),
          'SpecieLevel': ('SimpleVocabulary', 'SimpleVocabularyTerm'),
          'SpecieGrowth': ('SimpleVocabulary', 'SimpleVocabularyTerm'),

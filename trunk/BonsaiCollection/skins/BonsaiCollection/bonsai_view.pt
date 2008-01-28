@@ -109,14 +109,13 @@
           </div>
           <div style="float: left;"><br/>
             <b><span i18n:translate="BonsaiCollection_label_origin">origin</span>: </b><span metal:use-macro="python: here.widget('origin', mode='view')">origin</span><br/>
-            <b><span i18n:translate="BonsaiCollection_label_cost">cost</span>: </b><span metal:use-macro="python: here.widget('cost', mode='view')">cost</span><br/>
             <b><span i18n:translate="BonsaiCollection_label_species">species</span>: </b><span metal:use-macro="python: here.widget('species', mode='view')">species</span><br/>            
             <b><span i18n:translate="BonsaiCollection_label_container">container</span>: </b><span metal:use-macro="python: here.widget('container', mode='view')">container</span><br/>
             <b><span i18n:translate="BonsaiCollection_label_treestyles">treestyles</span>: </b><span metal:use-macro="python: here.widget('treestyles', mode='view')">treestyles</span><br/>
             <b><span i18n:translate="BonsaiCollection_label_acquiredDate">Date d'acquisition</span>: </b><span metal:use-macro="python: here.widget('acquiredDate', mode='view')">Date</span><br/>            
           </div>
           <div class="visualClear"></div><br/>
-          <b><span i18n:translate="BonsaiCollection_label_remark">remark</span>: </b><span metal:use-macro="python: here.widget('remark', mode='view')">remark</span><br/>          
+          <b><span i18n:translate="BonsaiCollection_label_remark">Remark</span>: </b><span metal:use-macro="python: here.widget('remark', mode='view')">remark</span><br/>          
           <br/><br/><br/>
           
           <div 	style="float: left; margin: 10px"
@@ -154,7 +153,7 @@
                   </a>
                 </dd>
               </tal>
-          	<dl>
+          	</dl>
           </div>
           <div 	style="float: left; margin: 10px"
           		tal:define="results python: here.portal_catalog.searchResults(portal_type='BonsaiEventIllness',
@@ -193,7 +192,7 @@
 
                 </dd>
               </tal>
-          	<dl>
+          	</dl>
           </div>
           <div 	style="float: left; margin: 10px"
           		tal:define="results python: here.portal_catalog.searchResults(portal_type='ATPhotoAlbum',
@@ -230,7 +229,7 @@
                   </a>
                 </dd>
               </tal>
-          	<dl>
+          	</dl>
           </div>       
           <div class="visualClear"></div>
         </div>
