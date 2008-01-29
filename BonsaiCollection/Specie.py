@@ -384,7 +384,7 @@ class Specie(BaseContent):
     __implements__ = (getattr(BaseContent,'__implements__',()),)
 
     # This name appears in the 'add' box
-    archetype_name = 'Espèces'
+    archetype_name = 'Espèce'
 
     meta_type = 'Specie'
     portal_type = 'Specie'
@@ -395,7 +395,7 @@ class Specie(BaseContent):
     immediate_view = 'base_view'
     default_view = 'base_view'
     suppl_views = ()
-    typeDescription = "Espèces"
+    typeDescription = "Espèce"
     typeDescMsgId = 'description_edit_specie'
 
 
