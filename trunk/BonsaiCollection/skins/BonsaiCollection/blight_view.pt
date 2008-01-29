@@ -78,19 +78,22 @@
             errors python:request.get('errors', {});">
 
         <metal:use_header use-macro="header_macro" />        
-        <div i18n:domain="BonsaiCollection">          
+        <div i18n:domain="BonsaiCollection" tal:define="isPresent here/picture|nothing">
           <br/>         
-          <div class="bonsai-picture">
-            <span tal:replace="structure here/picture/picture_normal"/><br/><br/>
-            <a href="image.jpg" i18n:translate="label_click_to_view_full_image" tal:attributes="href string:$url/picture/image_view_fullscreen">Plein ecran</a>
+          <div class="" tal:attributes="class python:test(isPresent, 'bonsai-photo bonsai-picture-left', 'bonsai-photo-empty bonsai-picture-left')">
+            <tal:exist condition="isPresent">
+            	<span tal:replace="structure here/picture/picture_normal"/><br/><br/>
+            	<a href="image.jpg" i18n:translate="label_click_to_view_full_image" tal:attributes="href string:$url/picture/image_view_fullscreen">Plein ecran</a>
+            </tal:exist>
+            <div class="bonsai-photo-empty-title" tal:condition="not: isPresent"> no picture</div>
           </div>
           <div class="bonsai-info" i18n:domain="BonsaiCollection">
             <b><span i18n:translate="BonsaiCollection_label_severity">severity</span>: </b><span metal:use-macro="python: here.widget('severity', mode='view')">severity</span><br/>
             <b><span i18n:translate="BonsaiCollection_label_kind">Kind</span>: </b> <span metal:use-macro="python: here.widget('kind', mode='view')">kind</span><br/>
             <b><span i18n:translate="BonsaiCollection_label_symptoms">Symptome</span>: </b><span metal:use-macro="python: here.widget('symptoms', mode='view')">symptoms</span>
           </div>
-          <br/><br/>
-          <div class="bonsai-main">                                                   
+          <br/>
+          <div class="bonsai-main"><br/><br/>                                                   
             <h2 i18n:translate="BonsaiCollection_label_consequence">Consequence</h2>
             <span metal:use-macro="python: here.widget('consequence', mode='view')">consequence</span>
             <br/><br/>
