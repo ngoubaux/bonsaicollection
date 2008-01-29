@@ -90,7 +90,7 @@
                   <span tal:replace="structure python:obj.tag(scale='preview')" tal:attributes="style string:width:200px" />
                 </a>          
               </div>
-            </tal:exist>  
+            </tal:exist> 
             <div class="bonsai-photo-empty bonsai-picture-left" tal:condition="not:refs">
               <div class="bonsai-photo-empty-title"> no picture</div>
             </div>
@@ -107,7 +107,7 @@
                 </div>
             </tal:exist>
           </div>
-          <div style="float: left;"><br/>
+          <div style="float: left;">
             <b><span i18n:translate="BonsaiCollection_label_origin">origin</span>: </b><span metal:use-macro="python: here.widget('origin', mode='view')">origin</span><br/>
             <b><span i18n:translate="BonsaiCollection_label_species">species</span>: </b><span metal:use-macro="python: here.widget('species', mode='view')">species</span><br/>            
             <b><span i18n:translate="BonsaiCollection_label_container">container</span>: </b><span metal:use-macro="python: here.widget('container', mode='view')">container</span><br/>
