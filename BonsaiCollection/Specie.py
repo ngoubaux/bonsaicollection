@@ -44,7 +44,7 @@ schema = Schema((
             label_msgid='BonsaiCollection_label_commonName',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Botany"
+        schemata="Botanique"
     ),
 
     StringField(
@@ -56,7 +56,7 @@ schema = Schema((
             description_msgid='BonsaiCollection_help_family',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Botany"
+        schemata="Botanique"
     ),
 
     StringField(
@@ -66,7 +66,7 @@ schema = Schema((
             label_msgid='BonsaiCollection_label_cultivar',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Botany"
+        schemata="Botanique"
     ),
 
     StringField(
@@ -78,7 +78,7 @@ schema = Schema((
             description_msgid='BonsaiCollection_help_genus',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Botany"
+        schemata="Botanique"
     ),
 
     StringField(
@@ -159,7 +159,7 @@ schema = Schema((
             description_msgid='BonsaiCollection_help_variety',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Botany"
+        schemata="Botanique"
     ),
 
     StringField(
@@ -169,7 +169,7 @@ schema = Schema((
             label_msgid='BonsaiCollection_label_location',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Botany"
+        schemata="Botanique"
     ),
 
     TextField(
@@ -179,7 +179,7 @@ schema = Schema((
             label_msgid='BonsaiCollection_label_seed',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Getting"
+        schemata="Obtention"
     ),
 
     TextField(
@@ -189,7 +189,7 @@ schema = Schema((
             label_msgid='BonsaiCollection_label_cutting',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Getting"
+        schemata="Obtention"
     ),
 
     TextField(
@@ -199,7 +199,7 @@ schema = Schema((
             label_msgid='BonsaiCollection_label_layer',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Getting"
+        schemata="Obtention"
     ),
 
     TextField(
@@ -209,7 +209,7 @@ schema = Schema((
             label_msgid='BonsaiCollection_label_budding',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Getting"
+        schemata="Obtention"
     ),
 
     TextField(
@@ -310,7 +310,7 @@ schema = Schema((
             label_msgid='BonsaiCollection_label_wiring',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Aesthetic"
+        schemata="Esthetique"
     ),
 
     TextField(
@@ -320,7 +320,7 @@ schema = Schema((
             label_msgid='BonsaiCollection_label_potStyle',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Aesthetic"
+        schemata="Esthetique"
     ),
 
     StringField(
@@ -330,7 +330,7 @@ schema = Schema((
             label_msgid='BonsaiCollection_label_TreeType',
             i18n_domain='BonsaiCollection',
         ),
-        schemata="Botany",
+        schemata="Botanique",
         vocabulary=NamedVocabulary("""TreeType""")
     ),
 
@@ -342,7 +342,7 @@ schema = Schema((
             i18n_domain='BonsaiCollection',
         ),
         allowed_types=('TreeStyle',),
-        schemata="Aesthetic",
+        schemata="Esthetique",
         multiValued=1,
         relationship='specie_common style'
     ),
@@ -370,10 +370,10 @@ Specie_schema = BaseSchema.copy() + \
     schema.copy()
 
 ##code-section after-schema #fill in your manual code here
-Specie_schema['id'].schemata='Botany'
+Specie_schema['id'].schemata='Botanique'
 
 Specie_schema['title'].widget.label='Nom botanique'
-Specie_schema['title'].schemata='Botany'
+Specie_schema['title'].schemata='Botanique'
 Specie_schema['title'].widget.description='Nom botanique de l\'arbre'
 ##/code-section after-schema
 

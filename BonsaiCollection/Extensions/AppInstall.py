@@ -7,11 +7,11 @@ def install(self):
     vocabs = {}
 
     vocabs['SpecieLevel'] = (
-           ('hard', 'Hard'),
-           ('middle', u'Middle'),
+           ('hard', u'Difficile'),
+           ('middle', u'Moyen'),
            ('norm', u'Normal'),
-           ('easy', u'easy'),
-           ('imm', u'Immortal'),
+           ('easy', u'Facile'),
+           ('imm', u'Immortel'),
        )
    
     vocabs['TreeClass'] = (
@@ -48,18 +48,18 @@ def install(self):
        )
        
     vocabs['SpecieGrowth'] = (
-           ('vfast', u'Very fast'),
-           ('fast', u'Fast'),
-           ('norm', u'Normal'),
-           ('slow', u'Slow'),
-           ('vslow', u'Very slow'),
+           ('vfast', u'Tres rapide'),
+           ('fast', u'Rapide'),
+           ('norm', u'Normale'),
+           ('slow', u'Lente'),
+           ('vslow', u'Tres lente'),
        )   
        
     vocabs['BlightSeverity'] = (
-          ('minor', u'Minor'),
+          ('minor', u'Mineur'),
           ('important', u'Important'),
-          ('major', u'Major'),
-          ('death', u'Death'),
+          ('major', u'Majeur'),
+          ('death', u'Mortelle'),
        )
     
     vocabs['BlightGroup'] = (
