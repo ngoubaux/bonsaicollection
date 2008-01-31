@@ -79,16 +79,12 @@
             contentsMethod nocall:here/getFolderContents;
             batch batch|python:contentsMethod(contentFilter, batch=True);">
 
-        <metal:use_header use-macro="header_macro" />        
-        <div metal:use-macro="here/document_byline/macros/byline">
-            Get the byline - contains details about author and modification date.
-        </div>            
+        <metal:use_header use-macro="header_macro" />     
         <b>Nom Japonais: </b><span metal:use-macro="python: here.widget('japaneseName', mode='view')">japanesename</span><br/><br/>
-        
         <span metal:use-macro="python: here.widget('description', mode='view')">description</span><br/><br/> 
-        <div align="center">                
+        <div align="center">
             <span metal:use-macro="python: here.widget('image', mode='view')">image</span><br/>
-        </div>    
+        </div>
         <metal:use_footer use-macro="footer_macro" />
       </metal:main_macro>
     </metal:fill>
