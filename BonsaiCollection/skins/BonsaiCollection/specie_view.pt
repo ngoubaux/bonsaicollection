@@ -83,13 +83,6 @@
 
         <metal:use_header use-macro="header_macro" />        
         <div style="clear: right;">
-          <h1 tal:content="string: ${here/title_or_id} - $fieldset" >
-            Title or id
-          </h1> 
-          <div metal:use-macro="here/document_byline/macros/byline">
-           Get the byline - contains details about author and modification date.
-          </div>
-          <br/><br/>
           <table style="float: right; clear: right;" class="vertical listing"> 
             <tbody>
               <tr>
@@ -112,7 +105,7 @@
               </tr>
             </tbody>
           </table>
-          <div tal:condition="python: fieldset == 'Botany'">
+          <div tal:condition="python: fieldset == 'Botanique'">
             <table>
               <tr>
                 <td width="100px"><b><span i18n:translate="BonsaiCollection_label_family">Family</span>:</b></td>
@@ -142,24 +135,28 @@
           </div> 
           <div tal:condition="python: fieldset == 'Presentation'">
             <span metal:use-macro="python: here.widget('description', mode='view')">Description</span><br/> <br/>
-            <div align="center">
+            <div align="center" tal:define="img here/generalPicture|nothing"
+                                tal:condition="img">
               <span tal:replace="structure here/generalPicture/generalPicture_normal"/><br/><br/>
               <a href="image.jpg" tal:attributes="href string:$url/generalPicture/image_view_fullscreen">Photo d'ensemble</a>
             </div><br/>
-            <div align="center">              
+            <div align="center" tal:define="img here/leafPicture|nothing"
+                                tal:condition="img">              
                 <span tal:replace="structure here/leafPicture/leafPicture_normal"/><br/>
                 <a href="image.jpg" tal:attributes="href string:$url/leafPicture/image_view_fullscreen">Photo d'une feuille</a>
             </div><br />
-            <div align="center">
+            <div align="center" tal:define="img here/flowerPicture|nothing"
+                                tal:condition="img">
               <span tal:replace="structure here/flowerPicture/flowerPicture_normal"/><br/>
               <a href="image.jpg" tal:attributes="href string:$url/flowerPicture/image_view_fullscreen">Photo d'une fleur</a>
             </div><br />
-            <div align="center">
+            <div align="center" tal:define="img here/fruitPicture|nothing"
+                                tal:condition="img">
               <span tal:replace="structure here/fruitPicture/fruitPicture_normal"/><br/>
               <a href="image.jpg" tal:attributes="href string:$url/fruitPicture/image_view_fullscreen">Photo d'une fruit</a>
             </div><br />
           </div> 
-          <div tal:condition="python: fieldset == 'Getting'">
+          <div tal:condition="python: fieldset == 'Obtention'">
             <b>Semis:</b><p><span metal:use-macro="python: here.widget('seed', mode='view')">semis</span></p>
             <b>Bouture:</b><p><span metal:use-macro="python: here.widget('cutting', mode='view')">bouture</span></p>
             <b>Marcotte:</b><p><span metal:use-macro="python: here.widget('layer', mode='view')">marcotte</span></p>
@@ -206,7 +203,7 @@
               </tr>
             </table>      
           </div> 
-          <div tal:condition="python: fieldset == 'Aesthetic'">
+          <div tal:condition="python: fieldset == 'Esthetique'">
             <b><span i18n:translate="BonsaiCollection_label_wiring">La ligature:</span></b><p><span metal:use-macro="python: here.widget('wiring', mode='view')">ligature</span></p>
             <b><span i18n:translate="BonsaiCollection_label_treesstyle">Les Styles</span>:</b><p><span metal:use-macro="python: here.widget('Common style', mode='view')">styles</span></p>
             <b><span i18n:translate="BonsaiCollection_label_potStyle">Les poteries</span>:</b><p><span metal:use-macro="python: here.widget('potStyle', mode='view')">poterie</span></p>

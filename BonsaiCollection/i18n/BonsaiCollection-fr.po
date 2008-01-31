@@ -77,7 +77,7 @@ msgstr "Maladies"
 #. Default: "Budding"
 #: Specie.py
 msgid "BonsaiCollection_label_budding"
-msgstr "Marcotage"
+msgstr "Greffe"
 
 #. Default: "Care"
 #: Specie.py
