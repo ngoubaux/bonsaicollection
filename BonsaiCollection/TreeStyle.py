@@ -54,7 +54,7 @@ schema = Schema((
             i18n_domain='BonsaiCollection',
         ),
         storage=AttributeStorage(),
-        sizes={'thumb':(80,80), 'normal' : (200,200)}
+        sizes={'thumb':(80,80), 'normal' : (400,400)}
     ),
 
     TextField(
