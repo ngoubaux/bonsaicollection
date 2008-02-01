@@ -55,6 +55,7 @@
              tal:condition="python:exists('portal/%s' % item)"
              tal:content="string:@import url($portal_url/$item);">
       </style>
+      <style type="text/css" media="screen" tal:content="string:@import url($portal_url/bonsaicollection.css);"/>
     </tal:css>
     <tal:block define="portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
                        view_template python:'%s_view' % portal_type;
