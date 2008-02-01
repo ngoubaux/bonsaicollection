@@ -63,11 +63,11 @@ def install(self):
        )
     
     vocabs['BlightGroup'] = (
-          ('fungi', 'Fungi'),
-          ('bacteria', 'Bacteria'),
-          ('viruses', 'Viruses'),
-          ('nutrient', 'Nutrient deficiency'),
-          ('excess', 'Excess'),
+          ('fungi', 'Champignon'),
+          ('bacteria', 'Virus'),
+          ('Bug', 'Insecte'),
+          ('nutrient', 'Carence'),
+          ('excess', 'Exces'),
        )
   
     portal=getToolByName(self,'portal_url').getPortalObject()
