@@ -77,13 +77,17 @@
             errors python:request.get('errors', {});            
             contentFilter python: {'meta_type':['BonsaiEventIllness']};            
             contentsMethod nocall:here/getFolderContents;
+            url here/absolute_url;
             batch batch|python:contentsMethod(contentFilter, batch=True);">
 
         <metal:use_header use-macro="header_macro" />     
         <b>Nom Japonais: </b><span metal:use-macro="python: here.widget('japaneseName', mode='view')">japanesename</span><br/><br/>
         <span metal:use-macro="python: here.widget('description', mode='view')">description</span><br/><br/> 
-        <div align="center">
-            <span metal:use-macro="python: here.widget('image', mode='view')">image</span><br/>
+        <div align="center" tal:define="img here/image|nothing"
+                            tal:condition="img">
+          <a href="image.jpg" tal:attributes="href string:$url/image/image_view_fullscreen">
+            <span tal:replace="structure here/image/image_normal"/><br/><br/>
+          </a>
         </div>
         <metal:use_footer use-macro="footer_macro" />
       </metal:main_macro>
