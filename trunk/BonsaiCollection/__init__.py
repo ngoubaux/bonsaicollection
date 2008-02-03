@@ -91,6 +91,7 @@ def initialize(context):
     import BonsaiEventIllness
     import BonsaiEvent
     import BonsaiEventWork
+    import BonsaiDimension
 
     # Initialize portal content
     content_types, constructors, ftis = process_types(

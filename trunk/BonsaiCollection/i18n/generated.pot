@@ -186,6 +186,11 @@ msgstr ""
 msgid "BonsaiCollection_label_growth"
 msgstr ""
 
+#. Default: "Height"
+#: BonsaiDimension.py
+msgid "BonsaiCollection_label_height"
+msgstr ""
+
 #. Default: "Hygrometry"
 #: Specie.py
 msgid "BonsaiCollection_label_hygrometry"
@@ -321,6 +326,11 @@ msgstr ""
 msgid "BonsaiCollection_label_treestyles"
 msgstr ""
 
+#. Default: "Trunksize"
+#: BonsaiDimension.py
+msgid "BonsaiCollection_label_trunkSize"
+msgstr ""
+
 #. Default: "Type"
 #: BonsaiEvent.py
 msgid "BonsaiCollection_label_type"
@@ -338,12 +348,18 @@ msgstr ""
 
 #. Default: "When"
 #: BonsaiEvent.py
+#: BonsaiDimension.py
 msgid "BonsaiCollection_label_when"
 msgstr ""
 
 #. Default: "Where"
 #: BonsaiEvent.py
 msgid "BonsaiCollection_label_where"
+msgstr ""
+
+#. Default: "Width"
+#: BonsaiDimension.py
+msgid "BonsaiCollection_label_width"
 msgstr ""
 
 #. Default: "Wiring"

@@ -155,7 +155,7 @@ class Bonsai(BaseFolder):
 
     meta_type = 'Bonsai'
     portal_type = 'Bonsai'
-    allowed_content_types = ['ATPhotoAlbum', 'BonsaiEventIllness', 'BonsaiEventWork']
+    allowed_content_types = ['ATPhotoAlbum', 'BonsaiDimension', 'BonsaiEventIllness', 'BonsaiEventWork']
     filter_content_types = 1
     global_allow = 0
     content_icon = 'bonsai.gif'
@@ -200,6 +200,15 @@ class Bonsai(BaseFolder):
         'category': "object",
         'id': 'gallery_view',
         'name': 'Photo albums',
+        'permissions': ("View",),
+        'condition': 'python:1'
+       },
+
+
+       {'action': "string:${object_url}/evolution_view",
+        'category': "object",
+        'id': 'evolution_view',
+        'name': 'Evolution',
         'permissions': ("View",),
         'condition': 'python:1'
        },
