@@ -1,3 +1,4 @@
+# ArchGenXML generated POT File
 # unknown <unknown>, 2008.
 msgid ""
 msgstr ""
@@ -184,6 +185,11 @@ msgstr "Genre"
 msgid "BonsaiCollection_label_growth"
 msgstr "Croissance"
 
+#. Default: "Height"
+#: BonsaiDimension.py
+msgid "BonsaiCollection_label_height"
+msgstr "Hauteur"
+
 #. Default: "Hygrometry"
 #: Specie.py
 msgid "BonsaiCollection_label_hygrometry"
@@ -319,6 +325,11 @@ msgstr "Rempotage"
 msgid "BonsaiCollection_label_treestyles"
 msgstr "Style d'arbre"
 
+#. Default: "Trunksize"
+#: BonsaiDimension.py
+msgid "BonsaiCollection_label_trunkSize"
+msgstr "Taille du tronc"
+
 #. Default: "Type"
 #: BonsaiEvent.py
 msgid "BonsaiCollection_label_type"
@@ -336,6 +347,7 @@ msgstr "Arrosage"
 
 #. Default: "When"
 #: BonsaiEvent.py
+#: BonsaiDimension.py
 msgid "BonsaiCollection_label_when"
 msgstr "Quand"
 
@@ -343,6 +355,11 @@ msgstr "Quand"
 #: BonsaiEvent.py
 msgid "BonsaiCollection_label_where"
 msgstr "Où"
+
+#. Default: "Width"
+#: BonsaiDimension.py
+msgid "BonsaiCollection_label_width"
+msgstr "Largeur"
 
 #. Default: "Wiring"
 #: Specie.py

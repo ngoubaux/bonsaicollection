@@ -139,6 +139,7 @@ def install(self, reinstall=False):
         "Containers",
         "BonsaiEventIllness",
         "BonsaiEventWork",
+        "BonsaiDimension",
         ] + factory_tool.getFactoryTypes().keys()
     factory_tool.manage_setPortalFactoryTypes(listOfTypeIds=factory_types)
 

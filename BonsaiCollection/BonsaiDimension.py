@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# File: TreeStyle.py
+# File: BonsaiDimension.py
 #
 # Copyright (c) 2008 by []
 # Generator: ArchGenXML Version 1.5.2
@@ -36,36 +36,44 @@ from Products.BonsaiCollection.config import *
 
 schema = Schema((
 
-    StringField(
-        name='japaneseName',
-        filter_content_types="1",
-        widget=StringWidget(
-            label='Japanesename',
-            label_msgid='BonsaiCollection_label_japaneseName',
+    DateTimeField(
+        name='when',
+        widget=CalendarWidget(
+            show_hm=False,
+            label='When',
+            label_msgid='BonsaiCollection_label_when',
             i18n_domain='BonsaiCollection',
         )
     ),
 
-    ImageField(
-        name='image',
-        widget=ImageWidget(
-            label='Image',
-            label_msgid='BonsaiCollection_label_image',
+    IntegerField(
+        name='trunkSize',
+        widget=IntegerField._properties['widget'](
+            label='Trunksize',
+            label_msgid='BonsaiCollection_label_trunkSize',
             i18n_domain='BonsaiCollection',
         ),
-        storage=AttributeStorage(),
-        sizes={'thumb':(80,80), 'normal' : (200,200)}
+        description="en cm"
     ),
 
-    TextField(
-        name='description',
-        allowable_content_types=('text/plain', 'text/structured', 'text/html', 'application/msword',),
-        widget=RichWidget(
-            label='Description',
-            label_msgid='BonsaiCollection_label_description',
+    IntegerField(
+        name='height',
+        widget=IntegerField._properties['widget'](
+            label='Height',
+            label_msgid='BonsaiCollection_label_height',
             i18n_domain='BonsaiCollection',
         ),
-        default_output_type='text/html'
+        description="en cm"
+    ),
+
+    IntegerField(
+        name='width',
+        widget=IntegerField._properties['widget'](
+            label='Width',
+            label_msgid='BonsaiCollection_label_width',
+            i18n_domain='BonsaiCollection',
+        ),
+        description="en cm"
     ),
 
 ),
@@ -74,51 +82,36 @@ schema = Schema((
 ##code-section after-local-schema #fill in your manual code here
 ##/code-section after-local-schema
 
-TreeStyle_schema = BaseSchema.copy() + \
+BonsaiDimension_schema = BaseSchema.copy() + \
     schema.copy()
 
 ##code-section after-schema #fill in your manual code here
 ##/code-section after-schema
 
-class TreeStyle(BaseContent):
+class BonsaiDimension(BaseContent):
     """
     """
     security = ClassSecurityInfo()
     __implements__ = (getattr(BaseContent,'__implements__',()),)
 
     # This name appears in the 'add' box
-    archetype_name = 'Style arbre'
+    archetype_name = 'Prise de dimension'
 
-    meta_type = 'TreeStyle'
-    portal_type = 'TreeStyle'
+    meta_type = 'BonsaiDimension'
+    portal_type = 'BonsaiDimension'
     allowed_content_types = []
     filter_content_types = 0
     global_allow = 0
-    content_icon = 'paintbrush.png'
+    #content_icon = 'BonsaiDimension.gif'
     immediate_view = 'base_view'
     default_view = 'base_view'
     suppl_views = ()
-    typeDescription = "Style arbre"
-    typeDescMsgId = 'description_edit_treestyle'
-
-
-    actions =  (
-
-
-       {'action': "string:${object_url}/treestyle_view",
-        'category': "object",
-        'id': 'view',
-        'name': 'View',
-        'permissions': ("View",),
-        'condition': 'python:1'
-       },
-
-
-    )
+    typeDescription = "Prise de dimension"
+    typeDescMsgId = 'description_edit_bonsaidimension'
 
     _at_rename_after_creation = True
 
-    schema = TreeStyle_schema
+    schema = BonsaiDimension_schema
 
     ##code-section class-header #fill in your manual code here
     ##/code-section class-header
@@ -126,8 +119,8 @@ class TreeStyle(BaseContent):
     # Methods
 
 
-registerType(TreeStyle, PROJECTNAME)
-# end of class TreeStyle
+registerType(BonsaiDimension, PROJECTNAME)
+# end of class BonsaiDimension
 
 ##code-section module-footer #fill in your manual code here
 ##/code-section module-footer
