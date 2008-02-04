@@ -99,7 +99,8 @@
             <span metal:use-macro="python: here.widget('consequence', mode='view')">consequence</span>
             <br/><br/>
             <h2 i18n:translate="BonsaiCollection_label_care">rem&ecirc;de</h2>
-            <span metal:use-macro="python: here.widget('care', mode='view')">care</span>      
+            <span metal:use-macro="python: here.widget('care', mode='view')">care</span> <br/>
+            <span metal:use-macro="python: here.widget('encycloproducts', mode='view')">Products</span>                        
           </div>
         </div>       
         <metal:use_footer use-macro="footer_macro" />
