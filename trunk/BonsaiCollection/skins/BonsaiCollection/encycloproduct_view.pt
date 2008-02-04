@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+  <head><title></title></head>
+
+  <metal:javascript_head fill-slot="javascript_head_slot">
+    <tal:block define="macro here/archetypes_custom_js/macros/javascript_head | nothing"
+               condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+    <tal:comment replace="nothing">
+      Many of the following defines duplicated from the tal:defines in the
+      main slot. With base_edit, edit_macros could be reused as it was defined
+      for the entire document. base_view uses main_template and thus must
+      create additional defines for each slot it fills.
+    </tal:comment>
+    <tal:js define="fields python:here.Schema().viewableFields(here);
+                    js python:here.getUniqueWidgetAttr(fields, 'helper_js')"
+            condition="js"
+            repeat="item js">
+      <script type="text/javascript"
+              charset="iso-8859-1"
+              tal:condition="python:exists('portal/%s' % item)"
+              tal:attributes="src string:$portal_url/$item">
+      </script>
+    </tal:js>
+    <tal:block define="portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
+                       view_template python:'%s_view' % portal_type;
+                       view_macros python:path('here/%s/macros|nothing' % view_template);
+                       macro view_macros/js | nothing"
+               condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+  </metal:javascript_head>
+
+  <metal:css fill-slot="css_slot">
+    <tal:comment replace="nothing">
+      Many of the following defines duplicated from the tal:defines in the
+      main slot. With base_edit, edit_macros could be reused as it was defined
+      for the entire document. base_view uses main_template and thus must
+      create additional defines for each slot it fills.
+    </tal:comment>
+    <tal:css define="fields python:here.Schema().viewableFields(here);
+                     css python:here.getUniqueWidgetAttr(fields, 'helper_css')"
+             condition="css"
+             repeat="item css">
+      <style type="text/css"
+             media="all"
+             tal:condition="python:exists('portal/%s' % item)"
+             tal:content="string:@import url($portal_url/$item);">
+      </style>
+      <style type="text/css" media="screen" tal:content="string:@import url($portal_url/bonsaicollection.css);" />
+    </tal:css>
+    <tal:block define="portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
+                       view_template python:'%s_view' % portal_type;
+                       view_macros python:path('here/%s/macros|nothing' % view_template);
+                       macro view_macros/css | nothing"
+               condition="macro">
+      <metal:block use-macro="macro" />
+    </tal:block>
+  </metal:css>
+
+  <body>
+    <metal:fill fill-slot="main">
+      <metal:main_macro define-macro="main"
+            tal:define="portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
+            base_macros here/base/macros;
+            view_template python:'%s_view' % portal_type;
+            view_macros python:path('here/%s/macros|nothing' % view_template);
+            url here/absolute_url;
+            header_macro view_macros/header | header_macro | base_macros/header;                        
+            footer_macro view_macros/footer | footer_macro | base_macros/footer;
+            errors python:request.get('errors', {});">
+
+        <metal:use_header use-macro="header_macro" />        
+        <div i18n:domain="BonsaiCollection" tal:define="isPresent here/picture|nothing">
+          <br/>         
+          <div class="" tal:attributes="class python:test(isPresent, 'bonsai-photo bonsai-picture-left', 'bonsai-photo-empty bonsai-picture-left')">
+            <tal:exist condition="isPresent">
+            	<span tal:replace="structure here/picture/picture_normal"/><br/><br/>
+            	<a href="image.jpg" i18n:translate="label_click_to_view_full_image" tal:attributes="href string:$url/picture/image_view_fullscreen">Plein ecran</a>
+            </tal:exist>
+            <div class="bonsai-photo-empty-title" tal:condition="not: isPresent"> no picture</div>
+          </div>
+          <div class="bonsai-info" i18n:domain="BonsaiCollection">
+            <b><span i18n:translate="BonsaiCollection_label_type">Type</span>: </b><span metal:use-macro="python: here.widget('type', mode='view')">severity</span><br/>
+            <b><span i18n:translate="BonsaiCollection_label_wheretofind">Where to find</span>: </b> <span metal:use-macro="python: here.widget('whereToFind', mode='view')">kind</span><br/>            
+          </div>
+          <br/>
+          <div class="bonsai-main"><br/><br/>                                                   
+            <h2 i18n:translate="BonsaiCollection_label_remark">Remark</h2>
+            <span metal:use-macro="python: here.widget('remark', mode='view')">consequence</span>
+            <br/><br/>           
+          </div>
+        </div>       
+        <metal:use_footer use-macro="footer_macro" />
+      </metal:main_macro>
+    </metal:fill>
+  </body>
+</html>
