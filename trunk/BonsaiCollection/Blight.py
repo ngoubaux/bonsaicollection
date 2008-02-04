@@ -96,6 +96,18 @@ schema = Schema((
         )
     ),
 
+    ReferenceField(
+        name='encycloproducts',
+        widget=ReferenceWidget(
+            label='Encycloproducts',
+            label_msgid='BonsaiCollection_label_encycloproducts',
+            i18n_domain='BonsaiCollection',
+        ),
+        allowed_types=('EncycloProduct',),
+        multiValued=1,
+        relationship='Which product to use'
+    ),
+
 ),
 )
 

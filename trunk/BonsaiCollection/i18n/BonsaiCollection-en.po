@@ -46,7 +46,7 @@ msgstr ""
 msgid "BonsaiCollection_label_CurrentView"
 msgstr "Current view"
 
-#. Default: "Leaf Picture"
+#. Default: "Leafpicture"
 #: Specie.py
 #, fuzzy
 msgid "BonsaiCollection_label_LeafPicture"
@@ -57,14 +57,14 @@ msgstr "Leaf picture"
 msgid "BonsaiCollection_label_TreeType"
 msgstr ""
 
-#. Default: "Acquired Date"
+#. Default: "Acquireddate"
 #: Bonsai.py
 #: Container.py
 #, fuzzy
 msgid "BonsaiCollection_label_acquiredDate"
 msgstr "Acquired Date"
 
-#. Default: "Photo"
+#. Default: "Atphotos"
 #: Bonsai.py
 #, fuzzy
 msgid "BonsaiCollection_label_atphotos"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "BonsaiCollection_label_care"
 msgstr ""
 
-#. Default: "Chinese name"
+#. Default: "Chinesename"
 #: TreeStyle.py
 msgid "BonsaiCollection_label_chineseName"
 msgstr ""
@@ -101,10 +101,10 @@ msgstr ""
 msgid "BonsaiCollection_label_commonName"
 msgstr "Common name"
 
-#. Default: "Common name"
+#. Default: "Common_name"
 #: Specie.py
 msgid "BonsaiCollection_label_common_name"
-msgstr ""
+msgstr "Common name"
 
 #. Default: "Consequence"
 #: Blight.py
@@ -148,6 +148,11 @@ msgstr ""
 #: Blight.py
 msgid "BonsaiCollection_label_description"
 msgstr ""
+
+#. Default: "Encycloproducts"
+#: Blight.py
+msgid "BonsaiCollection_label_encycloproducts"
+msgstr "Products"
 
 #. Default: "Family"
 #: Specie.py
@@ -318,7 +323,7 @@ msgstr ""
 msgid "BonsaiCollection_label_transplanting"
 msgstr ""
 
-#. Default: "Tree styles"
+#. Default: "Treestyles"
 #: Bonsai.py
 #, fuzzy
 msgid "BonsaiCollection_label_treestyles"
@@ -327,46 +332,52 @@ msgstr "Tree styles"
 #. Default: "Trunksize"
 #: BonsaiDimension.py
 msgid "BonsaiCollection_label_trunkSize"
-msgstr ""
+msgstr "Trunk size"
 
 #. Default: "Type"
 #: BonsaiEvent.py
+#: EncycloProduct.py
 msgid "BonsaiCollection_label_type"
-msgstr ""
+msgstr "Type"
 
 #. Default: "Variety"
 #: Specie.py
 msgid "BonsaiCollection_label_variety"
-msgstr ""
+msgstr "Variety"
 
 #. Default: "Watering"
 #: Specie.py
 msgid "BonsaiCollection_label_watering"
-msgstr ""
+msgstr "Watering"
 
 #. Default: "When"
 #: BonsaiEvent.py
 #: BonsaiDimension.py
 msgid "BonsaiCollection_label_when"
-msgstr ""
+msgstr "When"
 
 #. Default: "Where"
 #: BonsaiEvent.py
 msgid "BonsaiCollection_label_where"
-msgstr ""
+msgstr "Where"
+
+#. Default: "Wheretofind"
+#: EncycloProduct.py
+msgid "BonsaiCollection_label_whereToFind"
+msgstr "Where to find"
 
 #. Default: "Width"
 #: BonsaiDimension.py
 msgid "BonsaiCollection_label_width"
-msgstr ""
+msgstr "Width"
 
 #. Default: "Wiring"
 #: Specie.py
 msgid "BonsaiCollection_label_wiring"
-msgstr ""
+msgstr "Wiring"
 
 #. Default: "Worktype"
 #: BonsaiEventWork.py
 msgid "BonsaiCollection_label_workType"
-msgstr ""
+msgstr "Work type"
 

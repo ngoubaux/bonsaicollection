@@ -59,7 +59,7 @@ class Encyclopedia(BaseFolder):
 
     meta_type = 'Encyclopedia'
     portal_type = 'Encyclopedia'
-    allowed_content_types = ['StyleVolume', 'SpecieVolume', 'BlightVolume']
+    allowed_content_types = ['StyleVolume', 'SpecieVolume', 'BlightVolume', 'ProductVolume']
     filter_content_types = 1
     global_allow = 1
     content_icon = 'books.png'
