@@ -69,6 +69,13 @@ def install(self):
           ('nutrient', 'Carence'),
           ('excess', 'Exces'),
        )
+       
+    vocabs['EncycloProductType'] = (
+          ('chimic', 'Chimique'),
+          ('animal', 'Animal'),
+          ('bio', 'bio'),
+          ('boisson', 'Boisson'),
+       )       
   
     portal=getToolByName(self,'portal_url').getPortalObject()
     atvm = getToolByName(portal, ATVOCABULARYTOOL)
