@@ -103,6 +103,7 @@ msgstr "Common name"
 
 #. Default: "Common_name"
 #: Specie.py
+#, fuzzy
 msgid "BonsaiCollection_label_common_name"
 msgstr "Common name"
 
@@ -253,6 +254,7 @@ msgstr ""
 #. Default: "Picture"
 #: Blight.py
 #: Container.py
+#: EncycloProduct.py
 msgid "BonsaiCollection_label_picture"
 msgstr ""
 
