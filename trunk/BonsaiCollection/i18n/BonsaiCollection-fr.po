@@ -1,4 +1,4 @@
-# ArchGenXML generated POT File
+﻿# ArchGenXML generated POT File
 # unknown <unknown>, 2008.
 msgid ""
 msgstr ""
@@ -68,7 +68,7 @@ msgstr "Date d'acquisition"
 #. Default: "Photo"
 #: Bonsai.py
 msgid "BonsaiCollection_label_atphotos"
-msgstr ""
+msgstr "Photo"
 
 #. Default: "Blights"
 #: BonsaiEventIllness.py
@@ -89,7 +89,7 @@ msgstr "Soins"
 #. Default: "Chinesename"
 #: TreeStyle.py
 msgid "BonsaiCollection_label_chineseName"
-msgstr ""
+msgstr "Nom chinois"
 
 #. Default: "Color"
 #: Container.py
@@ -131,7 +131,7 @@ msgstr "Coût"
 #. Default: "Cultivar"
 #: Specie.py
 msgid "BonsaiCollection_label_cultivar"
-msgstr ""
+msgstr "Cultivar"
 
 #. Default: "Cutting"
 #: Specie.py
@@ -141,14 +141,14 @@ msgstr "Bouture"
 #. Default: "Date"
 #: BonsaiEvent.py
 msgid "BonsaiCollection_label_date"
-msgstr ""
+msgstr "Date"
 
 #. Default: "Description"
 #: Specie.py
 #: TreeStyle.py
 #: Blight.py
 msgid "BonsaiCollection_label_description"
-msgstr ""
+msgstr "Description"
 
 #. Default: "Encycloproducts"
 #: Blight.py
@@ -365,7 +365,7 @@ msgstr "Où"
 #. Default: "Wheretofind"
 #: EncycloProduct.py
 msgid "BonsaiCollection_label_whereToFind"
-msgstr "O� le trouver"
+msgstr "Où le trouver"
 
 #. Default: "Width"
 #: BonsaiDimension.py
