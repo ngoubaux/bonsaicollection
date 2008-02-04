@@ -1,4 +1,3 @@
-﻿# ArchGenXML generated POT File
 # unknown <unknown>, 2008.
 msgid ""
 msgstr ""
@@ -67,6 +66,7 @@ msgstr "Date d'acquisition"
 
 #. Default: "Photo"
 #: Bonsai.py
+#, fuzzy
 msgid "BonsaiCollection_label_atphotos"
 msgstr "Photo"
 
@@ -88,6 +88,7 @@ msgstr "Soins"
 
 #. Default: "Chinesename"
 #: TreeStyle.py
+#, fuzzy
 msgid "BonsaiCollection_label_chineseName"
 msgstr "Nom chinois"
 
@@ -254,6 +255,7 @@ msgstr "Origine"
 #. Default: "Picture"
 #: Blight.py
 #: Container.py
+#: EncycloProduct.py
 msgid "BonsaiCollection_label_picture"
 msgstr "Image"
 

@@ -255,6 +255,7 @@ msgstr ""
 #. Default: "Picture"
 #: Blight.py
 #: Container.py
+#: EncycloProduct.py
 msgid "BonsaiCollection_label_picture"
 msgstr ""
 
