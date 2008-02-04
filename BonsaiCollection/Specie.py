@@ -344,7 +344,7 @@ schema = Schema((
         allowed_types=('TreeStyle',),
         schemata="Esthetique",
         multiValued=1,
-        relationship='specie_common style'
+        relationship='Common style'
     ),
 
     ReferenceField(
@@ -357,7 +357,7 @@ schema = Schema((
         allowed_types=('Blight',),
         schemata="Culture",
         multiValued=1,
-        relationship='specie_common illness'
+        relationship='Common illness'
     ),
 
 ),

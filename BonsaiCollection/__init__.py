@@ -92,6 +92,8 @@ def initialize(context):
     import BonsaiEvent
     import BonsaiEventWork
     import BonsaiDimension
+    import ProductVolume
+    import EncycloProduct
 
     # Initialize portal content
     content_types, constructors, ftis = process_types(

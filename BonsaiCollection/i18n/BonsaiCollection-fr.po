@@ -47,7 +47,7 @@ msgstr "Style communs"
 msgid "BonsaiCollection_label_CurrentView"
 msgstr "Vue actuelle"
 
-#. Default: "Leafpicture"
+#. Default: "Leaf Picture"
 #: Specie.py
 #, fuzzy
 msgid "BonsaiCollection_label_LeafPicture"
@@ -58,14 +58,14 @@ msgstr "Photo de feuille"
 msgid "BonsaiCollection_label_TreeType"
 msgstr "Type d'arbre"
 
-#. Default: "Acquireddate"
+#. Default: "Acquired Date"
 #: Bonsai.py
 #: Container.py
 #, fuzzy
 msgid "BonsaiCollection_label_acquiredDate"
 msgstr "Date d'acquisition"
 
-#. Default: "Atphotos"
+#. Default: "Photo"
 #: Bonsai.py
 msgid "BonsaiCollection_label_atphotos"
 msgstr ""
@@ -86,7 +86,7 @@ msgstr "Greffe"
 msgid "BonsaiCollection_label_care"
 msgstr "Soins"
 
-#. Default: "Chinese name"
+#. Default: "Chinesename"
 #: TreeStyle.py
 msgid "BonsaiCollection_label_chineseName"
 msgstr ""
@@ -101,7 +101,7 @@ msgstr "Couleur"
 msgid "BonsaiCollection_label_commonName"
 msgstr "Nom commun"
 
-#. Default: "Common name"
+#. Default: "Common_name"
 #: Specie.py
 #, fuzzy
 msgid "BonsaiCollection_label_common_name"
@@ -149,6 +149,11 @@ msgstr ""
 #: Blight.py
 msgid "BonsaiCollection_label_description"
 msgstr ""
+
+#. Default: "Encycloproducts"
+#: Blight.py
+msgid "BonsaiCollection_label_encycloproducts"
+msgstr "Produits"
 
 #. Default: "Family"
 #: Specie.py
@@ -319,7 +324,7 @@ msgstr "Titre"
 msgid "BonsaiCollection_label_transplanting"
 msgstr "Rempotage"
 
-#. Default: "Treestyles"
+#. Default: "Tree styles"
 #: Bonsai.py
 #, fuzzy
 msgid "BonsaiCollection_label_treestyles"
@@ -332,6 +337,7 @@ msgstr "Taille du tronc"
 
 #. Default: "Type"
 #: BonsaiEvent.py
+#: EncycloProduct.py
 msgid "BonsaiCollection_label_type"
 msgstr ""
 
@@ -355,6 +361,11 @@ msgstr "Quand"
 #: BonsaiEvent.py
 msgid "BonsaiCollection_label_where"
 msgstr "OÃ¹"
+
+#. Default: "Wheretofind"
+#: EncycloProduct.py
+msgid "BonsaiCollection_label_whereToFind"
+msgstr "Où le trouver"
 
 #. Default: "Width"
 #: BonsaiDimension.py

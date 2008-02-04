@@ -75,6 +75,7 @@ def install(self, reinstall=False):
     from Products.ATVocabularyManager.config import TOOL_NAME as ATVOCABULARYTOOL
     atvm = getToolByName(self, ATVOCABULARYTOOL)
     vocabmap = {'BonsaiOrigin': ('SimpleVocabulary', 'SimpleVocabularyTerm'),
+         'EncycloProductType': ('SimpleVocabulary', 'SimpleVocabularyTerm'),
          'BlightGroup': ('SimpleVocabulary', 'SimpleVocabularyTerm'),
          'BonsaiWorkType': ('SimpleVocabulary', 'SimpleVocabularyTerm'),
          'SpecieLevel': ('SimpleVocabulary', 'SimpleVocabularyTerm'),
@@ -140,6 +141,8 @@ def install(self, reinstall=False):
         "BonsaiEventIllness",
         "BonsaiEventWork",
         "BonsaiDimension",
+        "ProductVolume",
+        "EncycloProduct",
         ] + factory_tool.getFactoryTypes().keys()
     factory_tool.manage_setPortalFactoryTypes(listOfTypeIds=factory_types)
 

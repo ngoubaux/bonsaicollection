@@ -151,6 +151,11 @@ msgstr ""
 msgid "BonsaiCollection_label_description"
 msgstr ""
 
+#. Default: "Encycloproducts"
+#: Blight.py
+msgid "BonsaiCollection_label_encycloproducts"
+msgstr ""
+
 #. Default: "Family"
 #: Specie.py
 msgid "BonsaiCollection_label_family"
@@ -333,6 +338,7 @@ msgstr ""
 
 #. Default: "Type"
 #: BonsaiEvent.py
+#: EncycloProduct.py
 msgid "BonsaiCollection_label_type"
 msgstr ""
 
@@ -355,6 +361,11 @@ msgstr ""
 #. Default: "Where"
 #: BonsaiEvent.py
 msgid "BonsaiCollection_label_where"
+msgstr ""
+
+#. Default: "Wheretofind"
+#: EncycloProduct.py
+msgid "BonsaiCollection_label_whereToFind"
 msgstr ""
 
 #. Default: "Width"
