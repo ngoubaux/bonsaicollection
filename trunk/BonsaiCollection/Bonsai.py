@@ -34,6 +34,7 @@ from Products.BonsaiCollection.config import *
 
 # additional imports from tagged value 'import'
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
+from random import choice
 
 ##code-section module-header #fill in your manual code here
 ##/code-section module-header
@@ -224,6 +225,20 @@ class Bonsai(BaseFolder):
     ##/code-section class-header
 
     # Methods
+
+    security.declarePublic('getPicture')
+    def getPicture(self):
+        """
+        return the referenced photo or try to get one
+        """
+        refs = self.getReferenceImpl(relationship='looks like');
+        if len(refs) > 0 :
+          return refs[0].getTargetObject()
+        else:
+          results = self.portal_catalog.searchResults(portal_type='ATPhoto',         																	  path='/'.join(self.getPhysicalPath()))
+          if len(results) > 0:
+            return choice(results).getObject()
+     	pass
 
 
 registerType(Bonsai, PROJECTNAME)

@@ -82,16 +82,15 @@
 
         <metal:use_header use-macro="header_macro" />
         <div i18n:domain="BonsaiCollection">
-          <tal:define define="refs python:here.getReferenceImpl(relationship='looks like')">
-           <tal:exist condition="refs">                                     
-              <div class="bonsai-photo bonsai-picture-left" tal:define="ref python:refs[0];
-                                           obj ref/getTargetObject">
+          <tal:define define="obj python:here.getPicture();">
+           <tal:exist condition="obj">                                     
+              <div class="bonsai-photo bonsai-picture-left">
                 <a href="image.jpg" tal:attributes="href obj/absolute_url">
                   <span tal:replace="structure python:obj.tag(scale='preview')" tal:attributes="style string:width:200px" />
                 </a>          
               </div>
             </tal:exist> 
-            <div class="bonsai-photo-empty bonsai-picture-left" tal:condition="not:refs">
+            <div class="bonsai-photo-empty bonsai-picture-left" tal:condition="not:obj">
               <div class="bonsai-photo-empty-title"> no picture</div>
             </div>
           </tal:define>
@@ -102,9 +101,7 @@
               </a>
             </tal:exist>
             <tal:exist condition="not:obj">
-              <div class="bonsai-photo-empty">
-                <div class="bonsai-photo-empty-title"> no picture</div>
-                </div>
+              <div class="bonsai-photo-empty-title"> no picture</div>
             </tal:exist>
           </div>
           <div style="float: left;">
@@ -264,7 +261,7 @@
                 <dd class="portletItem odd">
                   <a href="works_add" tal:attributes="href string:$url/createObject?type_name=ATPhotoAlbum" 
                                       i18n:translate="BonsaiCollection_label_addnewalbums">
-                     Ajouter une nouvelle albums
+                     Ajouter un nouvel album
                   </a>
                 </dd>
               </tal>
