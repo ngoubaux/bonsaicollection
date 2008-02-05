@@ -69,6 +69,21 @@ class BonsaiCollection(BaseFolder):
     typeDescription = "Bonsaï Collection"
     typeDescMsgId = 'description_edit_bonsaicollection'
 
+
+    actions =  (
+
+
+       {'action': "string:${object_url}/bonsaicollection_view",
+        'category': "object",
+        'id': 'view',
+        'name': 'View',
+        'permissions': ("View",),
+        'condition': 'python:1'
+       },
+
+
+    )
+
     _at_rename_after_creation = True
 
     schema = BonsaiCollection_schema
