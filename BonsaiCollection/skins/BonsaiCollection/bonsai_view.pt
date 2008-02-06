@@ -106,11 +106,12 @@
               <div class="bonsai-photo-empty-title"> no picture</div>
             </tal:exist>
           </div>
-          <div style="float: left;">
+          <div style="float: left;"
+               tal:define="sp here/species|nothing">
             <b><span i18n:translate="BonsaiCollection_label_origin">origin</span>: </b><span metal:use-macro="python: here.widget('origin', mode='view')">origin</span><br/>
             <b><span i18n:translate="BonsaiCollection_label_species">species</span>: </b>
-               <span metal:use-macro="python: here.widget('species', mode='view')" tal:condition="here/species|nothing">species</span>
-               <tal:species condition="not:here/species|nothing"
+               <span metal:use-macro="python: here.widget('species', mode='view')" tal:condition="sp">species</span>
+               <tal:species condition="not: sp"
                             define="encyclourl encyclo/absolute_url">
                  <a href="" tal:attributes="href string:${encyclourl}">Ajouter une fiche esp&egrave;ce</a>
                 </tal:species>
