@@ -34,7 +34,6 @@ from Products.BonsaiCollection.config import *
 
 # additional imports from tagged value 'import'
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
-from random import choice
 
 ##code-section module-header #fill in your manual code here
 ##/code-section module-header
@@ -239,6 +238,15 @@ class Bonsai(BaseFolder):
           if len(results) > 0:
             return choice(results).getObject()
      	pass
+
+    security.declarePublic('getEncyclopedie')
+    def getEncyclopedie(self):
+        """
+        """
+        results = self.portal_catalog.searchResults(portal_type='Encyclopedia')
+        if len(results) > 0:
+          return results[0].getObject()
+        pass
 
 
 registerType(Bonsai, PROJECTNAME)
