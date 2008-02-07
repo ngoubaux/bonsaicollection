@@ -103,10 +103,11 @@
                 <span tal:replace="structure here/project/project_normal"/>
               </a>
             </tal:exist>
-            <div class="bonsai-photo-empty bonsai-picture-right" tal:condition="not:obj">
-              <div class="bonsai-photo-empty-title"> no picture</div>
-            </div>
           </div>
+          <div class="bonsai-photo-empty bonsai-picture-right" tal:condition="not:obj">
+              <div class="bonsai-photo-empty-title"> no picture</div>
+          </div>
+          
           <div style="float: left;"
                tal:define="sp python:here.getReferenceImpl(relationship='is specie');               
                            pot python:here.getReferenceImpl(relationship='in container');">
