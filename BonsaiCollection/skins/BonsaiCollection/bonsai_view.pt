@@ -103,9 +103,9 @@
                 <span tal:replace="structure here/project/project_normal"/>
               </a>
             </tal:exist>
-            <tal:exist condition="not:obj">
+            <div class="bonsai-photo-empty bonsai-picture-right" tal:condition="not:obj">
               <div class="bonsai-photo-empty-title"> no picture</div>
-            </tal:exist>
+            </div>
           </div>
           <div style="float: left;"
                tal:define="sp python:here.getReferenceImpl(relationship='is specie');               
@@ -124,7 +124,7 @@
             <span metal:use-macro="python: here.widget('container', mode='view')">container</span>
             <tal:pot condition="not: pot">
                  <a href="" tal:attributes="href string:${potsurl}/createObject?type_name=Container" 
-                            tal:condition="potsurl" 
+                            tal:condition="python: potsurl and can_manage" 
                             tal:define="potsurl pots/absolute_url|nothing">Ajouter un pot</a>
             </tal:pot>
             <br/>
