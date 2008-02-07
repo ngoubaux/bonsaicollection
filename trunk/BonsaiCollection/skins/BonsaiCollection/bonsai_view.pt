@@ -80,7 +80,8 @@
             url here/absolute_url;
             errors python:request.get('errors', {});
             can_manage python: container.portal_membership.checkPermission('Modify portal content', here);
-            encyclo python:here.getEncyclopedie();">
+            encyclo python:here.getEncyclopedie();
+            pots python:here/getPots()">
 
         <metal:use_header use-macro="header_macro" />
         <div i18n:domain="BonsaiCollection">
@@ -107,16 +108,26 @@
             </tal:exist>
           </div>
           <div style="float: left;"
-               tal:define="sp here/species|nothing">
+               tal:define="sp python:here.getReferenceImpl(relationship='is specie');               
+                           pot python:here.getReferenceImpl(relationship='in container');">
             <b><span i18n:translate="BonsaiCollection_label_origin">origin</span>: </b><span metal:use-macro="python: here.widget('origin', mode='view')">origin</span><br/>
-            <b><span i18n:translate="BonsaiCollection_label_species">species</span>: </b>
-               <span metal:use-macro="python: here.widget('species', mode='view')" tal:condition="sp">species</span>
-               <tal:species condition="not: sp"
-                            define="encyclourl encyclo/absolute_url">
-                 <a href="" tal:attributes="href string:${encyclourl}">Ajouter une fiche esp&egrave;ce</a>
-                </tal:species>
-               <br/>            
-            <b><span i18n:translate="BonsaiCollection_label_container">container</span>: </b><span metal:use-macro="python: here.widget('container', mode='view')">container</span><br/>
+            
+            <b><span i18n:translate="BonsaiCollection_label_species">species</span>: </b>            
+            <span metal:use-macro="python: here.widget('species', mode='view')" tal:condition="sp">species</span>
+              <tal:species condition="not: sp"
+                           define="encyclourl encyclo/absolute_url">
+                <a href="" tal:attributes="href string:${encyclourl}">Ajouter une fiche esp&egrave;ce</a>
+              </tal:species>
+            <br/>            
+            
+            <b><span i18n:translate="BonsaiCollection_label_container">container</span>: </b>
+            <span metal:use-macro="python: here.widget('container', mode='view')">container</span>
+            <tal:pot condition="not: pot">
+                 <a href="" tal:attributes="href string:${potsurl}/createObject?type_name=Container" 
+                            tal:condition="potsurl" 
+                            tal:define="potsurl pots/absolute_url|nothing">Ajouter un pot</a>
+            </tal:pot>
+            <br/>
             <b><span i18n:translate="BonsaiCollection_label_treestyles">treestyles</span>: </b><span metal:use-macro="python: here.widget('treestyles', mode='view')">treestyles</span><br/>
             <b><span i18n:translate="BonsaiCollection_label_acquiredDate">Date d'acquisition</span>: </b><span metal:use-macro="python: here.widget('acquiredDate', mode='view')">Date</span><br/>            
           </div>
