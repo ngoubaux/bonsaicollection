@@ -81,7 +81,7 @@
             errors python:request.get('errors', {});
             can_manage python: container.portal_membership.checkPermission('Modify portal content', here);
             encyclo python:here.getEncyclopedie();
-            pots python:here/getPots()">
+            pots python:here.getPots()">
 
         <metal:use_header use-macro="header_macro" />
         <div i18n:domain="BonsaiCollection">
