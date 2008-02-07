@@ -97,16 +97,18 @@
               <div class="bonsai-photo-empty-title"> no picture</div>
             </div>
           </tal:define>
-          <div class="bonsai-photo bonsai-picture-right" tal:define="obj here/project|nothing">
-            <tal:exist condition="obj">
-              <a href="image.jpg" tal:attributes="href string:$url/project/image_view_fullscreen">
-                <span tal:replace="structure here/project/project_normal"/>
-              </a>
-            </tal:exist>
-          </div>
-          <div class="bonsai-photo-empty bonsai-picture-right" tal:condition="not:obj">
+          <tal:define define="obj here/project|nothing">
+            <div class="bonsai-photo bonsai-picture-right">
+              <tal:exist condition="obj">
+                <a href="image.jpg" tal:attributes="href string:$url/project/image_view_fullscreen">
+                  <span tal:replace="structure here/project/project_normal"/>
+                </a>
+              </tal:exist>
+            </div>          
+            <div class="bonsai-photo-empty bonsai-picture-right" tal:condition="not:obj">
               <div class="bonsai-photo-empty-title"> no picture</div>
-          </div>
+            </div>
+          </tal:define>
           
           <div style="float: left;"
                tal:define="sp python:here.getReferenceImpl(relationship='is specie');               
