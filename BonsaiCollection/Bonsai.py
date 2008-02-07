@@ -234,7 +234,7 @@ class Bonsai(BaseFolder):
         if len(refs) > 0 :
           return refs[0].getTargetObject()
         else:
-          results = self.portal_catalog.searchResults(portal_type='ATPhoto',         																	  path='/'.join(self.getPhysicalPath()))
+          results = self.portal_catalog.searchResults(portal_type='ATPhoto', path='/'.join(self.getPhysicalPath()))
           if len(results) > 0:
             return choice(results).getObject()
      	pass
@@ -244,6 +244,24 @@ class Bonsai(BaseFolder):
         """
         """
         results = self.portal_catalog.searchResults(portal_type='Encyclopedia')
+        if len(results) > 0:
+          return results[0].getObject()
+        pass
+
+    security.declarePublic('getSpecies')
+    def getSpecies(self):
+        """
+        """
+        results = self.portal_catalog.searchResults(portal_type='SpecieVolume')
+        if len(results) > 0:
+          return results[0].getObject()
+        pass
+
+    security.declarePublic('getPots')
+    def getPots(self):
+        """
+        """
+        results = self.aq_parent.getFolderContents(contentFilter ={'portal_type' : ['Containers']})
         if len(results) > 0:
           return results[0].getObject()
         pass
