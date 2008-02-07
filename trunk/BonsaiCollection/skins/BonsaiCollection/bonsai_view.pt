@@ -89,7 +89,7 @@
            <tal:exist condition="obj">                                     
               <div class="bonsai-photo bonsai-picture-left">
                 <a href="image.jpg" tal:attributes="href obj/absolute_url">
-                  <span tal:replace="structure python:obj.tag(scale='preview')" tal:attributes="style string:width:150%;height:150%" />
+                  <span tal:replace="structure python:obj.tag(scale='preview')" />
                 </a>          
               </div>
             </tal:exist> 
