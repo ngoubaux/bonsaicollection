@@ -34,6 +34,7 @@ from Products.BonsaiCollection.config import *
 
 # additional imports from tagged value 'import'
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
+from random import choice
 
 ##code-section module-header #fill in your manual code here
 ##/code-section module-header
