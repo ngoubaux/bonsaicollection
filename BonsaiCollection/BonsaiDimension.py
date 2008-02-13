@@ -38,6 +38,7 @@ schema = Schema((
 
     DateTimeField(
         name='when',
+        index="DateIndex",
         widget=CalendarWidget(
             show_hm=False,
             label='When',
