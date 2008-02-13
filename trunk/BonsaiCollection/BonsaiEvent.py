@@ -38,6 +38,7 @@ schema = Schema((
 
     DateTimeField(
         name='when',
+        index="DateIndex",
         widget=CalendarWidget(
             label='When',
             label_msgid='BonsaiCollection_label_when',

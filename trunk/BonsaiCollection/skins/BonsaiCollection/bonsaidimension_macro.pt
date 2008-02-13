@@ -1,7 +1,7 @@
 <html xmlns:tal="http://xml.zope.org/namespaces/tal"      xmlns:metal="http://xml.zope.org/namespaces/metal"      i18n:domain="plone"><body>  <div metal:define-macro="portlet" class="portal-dimension">    <div 	style="float: left; margin: 10px"
           		tal:define="results python: here.portal_catalog.searchResults(portal_type='BonsaiDimension',
           																	  path='/'.join(here.getPhysicalPath()),
-          																	  sort_on='Date',
+          																	  sort_on='getWhen',
           																	  sort_order='reverse')[:5]">
       <dl id="portlet-works" class="portlet">
         <dt class="portletHeader">
@@ -26,15 +26,14 @@
             </tal:block>
           </tal:block>
         </tal>
-        <tal tal:condition="not:results">
-          <dd class="portletItem odd">
-            <a href="illness_add" tal:attributes="href string:$url/createObject?type_name=BonsaiDimension" 
-                                i18n:translate="BonsaiCollection_label_adddimension"
-                                tal:condition="can_manage">
-               Ajouter une nouvelle mesure
-            </a>
-			<span tal:condition="not:can_manage"> Pas de mesure </span>
-          </dd>
-        </tal>
-    	</dl>
+        <dd class="portletItem odd" tal:condition="not:results">
+		  <span> Pas de mesure </span>
+        </dd>
+        <dd class="portletItem even" tal:condition="can_manage">
+          <a href="illness_add" tal:attributes="href string:$url/createObject?type_name=BonsaiDimension" 
+                                i18n:translate="BonsaiCollection_label_adddimension">
+             Ajouter une nouvelle mesure
+          </a>
+        </dd>
+      </dl>
     </div>  </div></body></html>

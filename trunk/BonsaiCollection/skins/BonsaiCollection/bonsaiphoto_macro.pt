@@ -17,23 +17,23 @@
                               url    obj/absolute_url;
                               icon   python: obj.getIcon(1)"
                   tal:attributes="class python:test(oddrow, 'portletItem even', 'portletItem odd')">
-                <a href="#" tal:attributes="href url">
-                  <img src="" alt="" tal:attributes="src string:${utool}/${icon};alt here/title_or_id" />
-                  <span tal:replace="title" />
-                </a>
-              </dd>
+                  <a href="#" tal:attributes="href url">
+                    <img src="" alt="" tal:attributes="src string:${utool}/${icon};alt here/title_or_id" />
+                    <span tal:replace="title" />
+                  </a>
+                </dd>
+              </tal:block>
             </tal:block>
-          </tal:block>
-        </tal>
-        <tal tal:condition="not:results">
-          <dd class="portletItem odd">
-            <a href="works_add" tal:attributes="href string:$url/createObject?type_name=ATPhotoAlbum" 
-                                i18n:translate="BonsaiCollection_label_addnewalbums"
-                                tal:condition="can_manage">
-               Ajouter un nouvel album
-            </a>
+          </tal>
+          <dd class="portletItem odd" tal:condition="not:results">
             <span tal:condition="not:can_manage"> Pas de photo </span>
           </dd>
-        </tal>
+          <dd class="portletItem even" tal:condition="can_manage">
+              <a href="works_add" tal:attributes="href string:$url/createObject?type_name=ATPhotoAlbum" 
+                                i18n:translate="BonsaiCollection_label_addnewalbums">
+                 Ajouter un nouvel album
+              </a>
+              
+          </dd>
     	</dl>
-    </div>  </div></body></html>
+     </div>  </div></body></html>
