@@ -1,0 +1,38 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"      xmlns:metal="http://xml.zope.org/namespaces/metal"      i18n:domain="plone"><body>  <div metal:define-macro="portlet" class="portal-blight">    <div 	style="float: left; margin: 10px"
+          		tal:define="results python: here.portal_catalog.searchResults(portal_type='BonsaiEventTreatment',
+          																	  path='/'.join(here.getPhysicalPath()),
+          																	  sort_on='getWhen',
+          																	  sort_order='reverse')[:5]">
+        <dl id="portlet-works" class="portlet">
+          <dt class="portletHeader">
+            <span class="portletTopLeft"/>
+            <a href="works_view" tal:attributes="href string:$url/illnesses_view" i18n:translate="BonsaiCollection_label_lasttreatment">Ses dernieres traitements</a>
+          <span class="portletTopRight"/>
+        </dt>
+        <tal tal:condition="results">
+          <tal:block tal:repeat="item results" > 
+            <tal:block tal:define="obj item/getObject">
+            	<dd tal:define="oddrow repeat/item/odd;
+            	                title  obj/pretty_title_or_id;
+                                url    obj/absolute_url;
+                                icon   python: obj.getIcon(1)"
+                    tal:attributes="class python:test(oddrow, 'portletItem even', 'portletItem odd')">
+                   <a href="#" tal:attributes="href url">
+                     <img src="" alt="" tal:attributes="src string:${utool}/${icon};alt here/title_or_id" />
+	                 <span tal:replace="title" />
+				   </a>
+                 </dd>
+              </tal:block>
+            </tal:block>
+          </tal>
+          <dd class="portletItem odd" tal:condition="not:results">
+            <span> Pas de maladie </span>
+          </dd>
+          <dd class="portletItem even" tal:condition="can_manage">
+            <a href="illness_add" tal:attributes="href string:$url/createObject?type_name=BonsaiEventTreatment" 
+                                i18n:translate="BonsaiCollection_label_addnewtreatment">
+               Ajouter un nouveau traitement
+            </a>
+          </dd>
+    	</dl>
+    </div>  </div></body></html>

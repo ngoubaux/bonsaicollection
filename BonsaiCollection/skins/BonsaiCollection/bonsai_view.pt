@@ -138,7 +138,7 @@
           <b><span i18n:translate="BonsaiCollection_label_remark">Remark</span>: </b><span metal:use-macro="python: here.widget('remark', mode='view')">remark</span><br/>          
           <br/><br/><br/>
           <metal:use_work use-macro="context/bonsaiwork_macro/macros/portlet" />
-          <metal:use_work use-macro="context/bonsaiblight_macro/macros/portlet" />
+          <metal:use_work use-macro="context/bonsaitreatment_macro/macros/portlet" />
           <metal:use_work use-macro="context/bonsaidimension_macro/macros/portlet" />       
           <metal:use_work use-macro="context/bonsaiphoto_macro/macros/portlet" />
           <div class="visualClear"></div>

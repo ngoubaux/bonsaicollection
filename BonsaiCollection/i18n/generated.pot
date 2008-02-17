@@ -31,6 +31,11 @@ msgstr ""
 msgid "BonsaiCollection_help_variety"
 msgstr ""
 
+#. Default: "Caretype"
+#: BonsaiEventTreatment.py
+msgid "BonsaiCollection_label_CareType"
+msgstr ""
+
 #. Default: "Common illness"
 #: Specie.py
 msgid "BonsaiCollection_label_Common illness"
@@ -72,6 +77,7 @@ msgstr ""
 
 #. Default: "Blights"
 #: BonsaiEventIllness.py
+#: BonsaiEventTreatment.py
 msgid "BonsaiCollection_label_blights"
 msgstr ""
 
@@ -153,6 +159,7 @@ msgstr ""
 
 #. Default: "Encycloproducts"
 #: Blight.py
+#: BonsaiEventTreatment.py
 msgid "BonsaiCollection_label_encycloproducts"
 msgstr ""
 

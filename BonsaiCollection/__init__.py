@@ -88,7 +88,7 @@ def initialize(context):
     import BlightVolume
     import BonsaiCollection
     import Containers
-    import BonsaiEventIllness
+    import BonsaiEventTreatment
     import BonsaiEvent
     import BonsaiEventWork
     import BonsaiDimension
