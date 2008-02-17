@@ -137,10 +137,18 @@
           <div class="visualClear"></div><br/>
           <b><span i18n:translate="BonsaiCollection_label_remark">Remark</span>: </b><span metal:use-macro="python: here.widget('remark', mode='view')">remark</span><br/>          
           <br/><br/><br/>
-          <metal:use_work use-macro="context/bonsaiwork_macro/macros/portlet" />
-          <metal:use_work use-macro="context/bonsaitreatment_macro/macros/portlet" />
-          <metal:use_work use-macro="context/bonsaidimension_macro/macros/portlet" />       
-          <metal:use_work use-macro="context/bonsaiphoto_macro/macros/portlet" />
+          <div id="portal-slot-content">
+            <div id="portal-slot-column1">
+              <metal:use_work use-macro="context/bonsaiwork_macro/macros/portlet" />
+              <br/>
+              <metal:use_work use-macro="context/bonsaitreatment_macro/macros/portlet" />
+            </div>
+            <div id="portal-slot-column2">
+              <metal:use_work use-macro="context/bonsaidimension_macro/macros/portlet" />              
+              <br/>
+              <metal:use_work use-macro="context/bonsaiphoto_macro/macros/portlet" />
+            </div>
+          </div>
           <div class="visualClear"></div>
         </div>
         <metal:use_footer use-macro="footer_macro" />
