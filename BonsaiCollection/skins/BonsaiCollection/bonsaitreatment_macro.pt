@@ -1,4 +1,9 @@
-<html xmlns:tal="http://xml.zope.org/namespaces/tal"      xmlns:metal="http://xml.zope.org/namespaces/metal"      i18n:domain="plone"><body>  <div metal:define-macro="portlet" class="portal-blight">    <div class="portal-treatments" tal:define="results python: here.portal_catalog.searchResults(portal_type='BonsaiEventTreatment',
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+<body>
+  <div metal:define-macro="portlet" class="portal-blight">
+    <div class="portal-treatments" tal:define="results python: here.portal_catalog.searchResults(portal_type='BonsaiEventTreatment',
           																	  path='/'.join(here.getPhysicalPath()),
           																	  sort_on='getWhen',
           																	  sort_order='reverse')[:5]">
@@ -34,4 +39,7 @@
             </a>
           </span>
     	</div>
-    </div>  </div></body></html>
+    </div>
+  </div>
+</body>
+</html>
