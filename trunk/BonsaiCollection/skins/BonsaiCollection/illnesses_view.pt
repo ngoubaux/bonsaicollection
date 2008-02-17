@@ -75,7 +75,7 @@
             header_macro view_macros/header | header_macro | base_macros/header;                        
             footer_macro view_macros/footer | footer_macro | base_macros/footer;
             errors python:request.get('errors', {});            
-            contentFilter python: {'meta_type':['BonsaiEventIllness']};            
+            contentFilter python: {'meta_type':['BonsaiEventTreatment']};            
             contentsMethod nocall:here/getFolderContents;
             batch batch|python:contentsMethod(contentFilter, batch=True);">
 

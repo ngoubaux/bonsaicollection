@@ -75,7 +75,12 @@ def install(self):
           ('animal', 'Animal'),
           ('bio', 'bio'),
           ('boisson', 'Boisson'),
-       )       
+       )
+    
+    vocabs['BonsaiTreatment'] = (
+         ('prevent' ,'Preventif'),
+         ('curative', 'Curatif'),
+       )
   
     portal=getToolByName(self,'portal_url').getPortalObject()
     atvm = getToolByName(portal, ATVOCABULARYTOOL)

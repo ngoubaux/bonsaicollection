@@ -156,7 +156,7 @@ class Bonsai(BaseFolder):
 
     meta_type = 'Bonsai'
     portal_type = 'Bonsai'
-    allowed_content_types = ['ATPhotoAlbum', 'BonsaiDimension', 'BonsaiEventIllness', 'BonsaiEventWork']
+    allowed_content_types = ['ATPhotoAlbum', 'BonsaiDimension', 'BonsaiEventTreatment', 'BonsaiEventWork']
     filter_content_types = 1
     global_allow = 0
     content_icon = 'bonsai.gif'
@@ -191,7 +191,7 @@ class Bonsai(BaseFolder):
        {'action': "string:${object_url}/illnesses_view",
         'category': "object",
         'id': 'illnesses_view',
-        'name': 'maladies',
+        'name': 'traitements',
         'permissions': ("View",),
         'condition': 'python:1'
        },
