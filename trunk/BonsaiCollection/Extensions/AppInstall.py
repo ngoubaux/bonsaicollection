@@ -39,8 +39,9 @@ def install(self):
     vocabs['BonsaiOrigin'] = (
           ('seed', u'Semi'),
           ('taking', u'Prelevement'),
-          ('prof', u'Professionel'),
-          ('div', u'division'),
+          ('prof', u'Professionel bonsai'),
+          ('div', u'Division'),
+          ('raw', u'Jardinerie'),
        )
     vocabs['TreeType'] = (
           ('conifer', u'Conifer'),
