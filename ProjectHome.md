@@ -1,0 +1,1 @@
+BonsaiCollection is a plone product. it allows you to create and manage bonsai tree collection. There are two main parts. One is an encyclopedia with spece, style and illness. The second is the tree collection with tree, pot, event and photo albums.
